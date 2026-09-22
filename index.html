@@ -39,6 +39,7 @@
   <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
   <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
@@ -77,6 +78,8 @@
   <script defer src="static/js/index.js"></script>
   <script defer src="static/js/demo_data.js"></script>
   <script defer src="static/js/demo.js"></script>
+  <script defer src="static/js/sota_data.js"></script>
+  <script defer src="static/js/sota.js"></script>
 
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
@@ -238,22 +241,30 @@
   <!-- End demo MusicEval -->
 
 
-  <!-- Placeholder: second demo section -->
+  <!-- Demo: SOTA generators -->
   <section class="section">
-    <div class="container is-max-desktop">
+    <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Demo &middot; More Examples</h2>
-          <div class="coming-soon">
-            <i class="fas fa-music"></i>
-            <p><strong>Coming soon.</strong></p>
-            <p>Additional listening examples will be added here.</p>
+          <h2 class="title is-3">Demo &middot; SOTA Generators</h2>
+          <div class="content has-text-justified">
+            <p>
+              Here we compare <strong>four state-of-the-art text-to-music generators</strong>
+              (MusicGen-Large, Stable Audio 3, MeanAudio, ACE-Step 1.5) on the same prompt, with
+              the original recording (<em>Ground Truth</em>) shown for reference. As in the
+              previous section, prompts are chosen so that <strong>CLAP rates all four generators
+              almost identically</strong> — yet the clips clearly realize the prompt differently.
+              <strong>MQAScore separates the generators and says on which attribute:</strong>
+              every atomic concept in the prompt is highlighted below by its dimension, and the
+              per-attribute table shows which generator actually delivered each one.
+            </p>
           </div>
         </div>
       </div>
+      <div id="sota-demo" class="demo-grid"></div>
     </div>
   </section>
-  <!-- End placeholder -->
+  <!-- End SOTA demo -->
 
 
   <!-- BibTeX citation -->

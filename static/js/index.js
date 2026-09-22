@@ -120,23 +120,24 @@ function setupVideoCarouselAutoplay() {
 }
 
 $(document).ready(function() {
-    // Check for click events on the navbar burger icon
-
-    var options = {
-		slidesToScroll: 1,
-		slidesToShow: 1,
-		loop: true,
-		infinite: true,
-		autoplay: true,
-		autoplaySpeed: 5000,
+    // Carousels / sliders are optional — only initialize if the libs are loaded.
+    if (typeof bulmaCarousel !== 'undefined') {
+        var options = {
+            slidesToScroll: 1,
+            slidesToShow: 1,
+            loop: true,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 5000,
+        };
+        bulmaCarousel.attach('.carousel', options);
     }
 
-	// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-	
-    bulmaSlider.attach();
-    
-    // Setup video autoplay for carousel
+    if (typeof bulmaSlider !== 'undefined') {
+        bulmaSlider.attach();
+    }
+
+    // Setup video autoplay for carousel (no-op if there are no carousel videos)
     setupVideoCarouselAutoplay();
 
 })

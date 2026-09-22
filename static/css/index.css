@@ -1192,6 +1192,257 @@ a:focus {
   .score-panels { grid-template-columns: 1fr; }
 }
 
+/* ==========================================================================
+   SOTA generators demo
+   ========================================================================== */
+
+/* Per-dimension concept colors (translucent for a soft, layered look) */
+.dim-genre      { --dim: 124, 58, 237; }   /* violet */
+.dim-instrument { --dim: 13, 148, 136; }   /* teal   */
+.dim-mood_theme { --dim: 217, 119, 6;  }   /* amber  */
+.dim-vocal      { --dim: 225, 29, 72;  }   /* rose   */
+.dim-context    { --dim: 2, 132, 199;  }   /* sky    */
+
+/* Inline highlighted concept inside a caption */
+.concept {
+  background: rgba(var(--dim), 0.16);
+  color: rgb(var(--dim));
+  box-shadow: inset 0 -0.35em 0 rgba(var(--dim), 0.10);
+  padding: 0.02em 0.28em;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+.concept:hover { background: rgba(var(--dim), 0.28); }
+
+/* Pill chip (legend, unlocated concepts, per-attribute row labels) */
+.concept-chip {
+  display: inline-block;
+  background: rgba(var(--dim), 0.14);
+  color: rgb(var(--dim));
+  border: 1px solid rgba(var(--dim), 0.28);
+  border-radius: 999px;
+  padding: 0.12rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.dim-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 1000px;
+  margin: 0 auto 1.75rem;
+  padding: 0.9rem 1rem;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+.dim-legend-label { font-weight: 600; color: var(--text-secondary); margin-right: 0.25rem; }
+
+.sota-dataset-title {
+  max-width: 1000px;
+  margin: 2.5rem auto 1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.sota-dataset-note { font-size: 0.85rem; font-weight: 500; color: var(--text-light); }
+
+.sota-prompt {
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1.75rem;
+  text-align: left;
+}
+.sota-prompt:hover { box-shadow: var(--shadow-lg); }
+
+.tie-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--background-accent);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.sota-caption {
+  background: var(--background-secondary);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.sota-caption .caption-body {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-primary);
+}
+.unlocated {
+  margin-top: 0.85rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--border-color);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+.unlocated-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sota-sub {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-light);
+  margin: 0 0 0.6rem;
+}
+
+/* Audio grid: 5 models */
+.sota-audio-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.sota-audio-cell {
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 0.75rem;
+}
+.sota-audio-cell.is-gt {
+  background: var(--background-accent);
+  border-style: dashed;
+}
+.sota-model-name {
+  display: block;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.gt-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.02rem 0.3rem;
+  margin-left: 0.25rem;
+}
+.sota-audio-cell audio { width: 100%; height: 36px; }
+
+/* Panels */
+.sota-panels { display: flex; flex-direction: column; gap: 1.5rem; }
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+.panel-head .panel-title { margin-bottom: 0; }
+
+/* ALM toggle */
+.alm-toggle {
+  display: inline-flex;
+  background: var(--background-accent);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 0.15rem;
+}
+.alm-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.alm-btn:hover { color: var(--text-primary); }
+.alm-btn.active {
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Per-attribute matrix reuses .mqa-table; concept-chip labels in first column */
+.sota-matrix { min-width: 620px; }
+.sota-matrix .mqa-tag-col { min-width: 150px; }
+.sota-matrix .gt-col { color: var(--text-light); }
+.mqa-cell.gt-cell { background: var(--background-accent); }
+.mqa-cell.gt-cell .mqa-num { color: var(--text-light); font-weight: 600; }
+.mqa-cell.gt-cell .mqa-bar-fill { background: #cbd5e1; }
+.mqa-mean-label { font-weight: 800; color: var(--primary-color); font-size: 0.8rem; }
+
+/* Model summary table */
+.sota-summary {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 640px;
+}
+.sota-summary th, .sota-summary td {
+  padding: 0.4rem 0.55rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.sota-summary thead th {
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+.sota-summary .grp { border-left: 1px solid var(--border-color); }
+.sota-summary .sum-subhead th { font-size: 0.68rem; padding-top: 0; }
+.sota-summary .sum-model-col { text-align: left; min-width: 130px; }
+.sota-summary tbody th.sum-model-col { font-weight: 600; color: var(--text-primary); }
+.sota-summary tbody td { color: var(--text-secondary); font-weight: 600; }
+.sota-summary tr.gt-row { background: var(--background-accent); }
+.sota-summary tr.gt-row th, .sota-summary tr.gt-row td { color: var(--text-light); }
+
+/* SOTA mobile */
+@media screen and (max-width: 768px) {
+  .sota-prompt { padding: 1.1rem; }
+  .sota-audio-grid { grid-template-columns: 1fr 1fr; }
+  .sota-caption .caption-body { font-size: 1rem; line-height: 1.8; }
+}
+@media screen and (max-width: 480px) {
+  .sota-audio-grid { grid-template-columns: 1fr; }
+}
+
 /* Print styles */
 @media print {
   .more-works-container {
