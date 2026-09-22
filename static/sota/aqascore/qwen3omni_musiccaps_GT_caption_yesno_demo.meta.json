@@ -1,0 +1,22 @@
+{
+  "scorer": "qwen3omni",
+  "model_id": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
+  "dataset": "musiccaps",
+  "model": "GT",
+  "target_sr": 16000,
+  "fix_seconds": 10,
+  "musiccaps_common_subset": true,
+  "items_file": "/home/lonian/MCB/demo/sota/aqascore_input.jsonl",
+  "batch": 1,
+  "batch_policy": "fixed batch, one query per item (--batch/--max-batch; default 1)",
+  "max_items": null,
+  "nshard": 1,
+  "shard": 0,
+  "attn_impl": "flash_attention_2",
+  "n_items_total": 10,
+  "items_sha1": "a7881266abccf112cabba3c32e2be178be3a65c1",
+  "system_prompt": "You are a music analysis assistant. Answer with only a single word: Yes or No.",
+  "granularity": "caption",
+  "caption_question_template": "Does this music match the following description? '{caption}' Answer Yes or No.",
+  "caption_truncation": "none (strip only)"
+}
