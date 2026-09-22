@@ -139,8 +139,8 @@
     var header = el("div", "pair-header");
     var left = el("div", "pair-id");
     left.innerHTML =
-      '<span class="pair-num">Pair ' + String(pair.pair).padStart(2, "0") + "</span>" +
-      '<span class="pair-prompt">' + pair.prompt_id + "</span>";
+      '<span class="pair-num">' + pair.prompt_id + '</span>' +
+      '<span class="pair-prompt">A/B pair</span>';
     header.appendChild(left);
     var badges = el("div", "pair-badges");
     var kt = pair.key_tag.split(":");
@@ -174,8 +174,8 @@
       items: pairs,
       renderItem: pairCard,
       optionLabel: function (p) {
-        return "Pair " + String(p.pair).padStart(2, "0") + " · " + p.prompt_id +
-          " · key " + p.key_tag.replace(":", " ");
+        var kt = p.key_tag.split(":");
+        return p.prompt_id + "  ·  key: " + M.dimLabel(kt[0]) + " " + kt.slice(1).join(":");
       }
     });
   }

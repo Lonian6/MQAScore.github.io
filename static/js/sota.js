@@ -160,9 +160,8 @@
     var header = el("div", "pair-header");
     var left = el("div", "pair-id");
     left.innerHTML =
-      '<span class="pair-num">' + DATASETS[prompt.dataset] + " " +
-      String(prompt._idx).padStart(2, "0") + "</span>" +
-      '<span class="pair-prompt">' + prompt.id + "</span>";
+      '<span class="pair-num">' + prompt.id + '</span>' +
+      '<span class="pair-prompt">' + DATASETS[prompt.dataset] + '</span>';
     header.appendChild(left);
     var badges = el("div", "pair-badges");
     var kt = prompt.key_tag.split(":");
@@ -191,21 +190,14 @@
       mount.appendChild(el("p", "demo-error", "SOTA demo data failed to load (static/js/sota_data.js)."));
       return;
     }
-    // per-dataset running index for labels
-    var counters = {};
-    prompts.forEach(function (p) {
-      counters[p.dataset] = (counters[p.dataset] || 0) + 1;
-      p._idx = counters[p.dataset];
-    });
-
     mount.appendChild(M.legend());
     M.createDeck({
       mount: mount,
       items: prompts,
       renderItem: promptCard,
       optionLabel: function (p) {
-        return DATASETS[p.dataset] + " " + String(p._idx).padStart(2, "0") +
-          " · " + p.id + " · key " + p.key_tag.replace(":", " ");
+        var kt = p.key_tag.split(":");
+        return p.id + "  ·  key: " + M.dimLabel(kt[0]) + " " + kt.slice(1).join(":");
       },
       groupLabel: function (p) { return DATASETS[p.dataset]; }
     });

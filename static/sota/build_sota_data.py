@@ -16,31 +16,39 @@ OUT = os.path.join(HERE, "..", "js", "sota_data.js")
 
 MODEL_ORDER = ["musicgen_large", "stable_audio_3", "meanaudio", "acestep_1_5", "GT"]
 
-# --- Concept curation -------------------------------------------------------
-# Concepts are auto-extracted by Qwen3-4B and NOT accuracy-checked. Drop clearly
-# mis-annotated / out-of-scope concepts, keyed by (id, attribute, tag).
-# See ../concept_audit.md.
-REMOVE = {
-    ("528", "instrument", "melody"),                  # "melody" is not an instrument
-    ("RXk0lQJ7ttc", "instrument", "female vocal"),    # a vocal, mis-filed as instrument
-    ("RXk0lQJ7ttc", "instrument", "male vocal"),      # a vocal, mis-filed as instrument
-    ("_yXtw_z2xf4", "mood_theme", "dizzying"),        # tempo-derived; tempo is out of scope
+# --- Sample curation --------------------------------------------------------
+# Concepts are auto-extracted by Qwen3-4B and NOT accuracy-checked. We keep only
+# the 5 prompts per dataset with the best extraction quality (correct dimensions,
+# good coverage, no under-/over-extraction). See ../concept_audit.md.
+KEEP = {
+    "musiccaps": ["cOsm3r-xKEE", "bm5IT7e2vvI", "D8-x1T8M4gk", "y6iMm7Pltq0", "D7pjR9cQChM"],
+    "sdd": ["387", "116", "291", "591", "138"],
 }
-# The key tag of RXk0 was the mis-filed instrument:female vocal; re-point it to
-# the correctly-labeled vocal:female vocal (same concept, same winner & gap).
-KEY_OVERRIDE = {"RXk0lQJ7ttc": "vocal:female vocal"}
+KEEP_IDS = {i for ids in KEEP.values() for i in ids}
+
+# Manual concept fixes, keyed by (id, attribute, tag):
+#  RENAME          -> change the concept's tag to the caption's wording (display + match).
+#  HIGHLIGHT_ALIAS -> keep the concept's tag/label & scores, but highlight a different
+#                     caption phrase (used when the tag isn't contiguous in the caption).
+RENAME = {
+    ("y6iMm7Pltq0", "vocal", "male vocal"): "male voice",   # caption: "A male voice is singing"
+}
+HIGHLIGHT_ALIAS = {
+    # caption reads "acoustic and electric guitars"; highlight "acoustic" for this concept
+    # (its label/scores stay "acoustic guitar" — a distinct concept from electric guitar).
+    ("116", "instrument", "acoustic guitar"): "acoustic",
+}
 
 
-def recompute_mean(per_tag, model, alm):
-    vals = [t["scores"][model][alm] for t in per_tag if model in t["scores"]]
-    return round(sum(vals) / len(vals), 4) if vals else None
-
-
-def spans_for(caption, tags):
-    """Return non-overlapping placed spans [(start,end,attribute,tag)] greedy-longest."""
+def spans_for(caption, tags, alias=None):
+    """Return non-overlapping placed spans [(start,end,attribute,tag)] greedy-longest.
+    `alias` maps (attribute, tag) -> a substitute string to search for in the caption
+    (the concept keeps its real tag; only the matched phrase differs)."""
+    alias = alias or {}
     cands = []
     for attribute, tag in tags:
-        pat = re.compile(r"\b" + re.escape(tag) + r"\w*", re.IGNORECASE)
+        needle = alias.get((attribute, tag), tag)
+        pat = re.compile(r"\b" + re.escape(needle) + r"\w*", re.IGNORECASE)
         for m in pat.finditer(caption):
             cands.append((m.start(), m.end(), attribute, tag))
     cands.sort(key=lambda c: (-(c[1] - c[0]), c[0]))
@@ -54,9 +62,9 @@ def spans_for(caption, tags):
     return placed
 
 
-def segment_caption(caption, per_tag):
+def segment_caption(caption, per_tag, alias=None):
     tags = [(t["attribute"], t["tag"]) for t in per_tag]
-    placed = sorted(spans_for(caption, tags), key=lambda c: c[0])
+    placed = sorted(spans_for(caption, tags, alias), key=lambda c: c[0])
     segments = []
     cur = 0
     located = set()
@@ -76,32 +84,35 @@ def segment_caption(caption, per_tag):
 def main():
     d = json.load(open(SRC))
     out = []
-    total = matched = removed = 0
-    for p in d["prompts"]:
-        # curate: drop clearly mis-annotated concepts
-        kept = [t for t in p["per_tag"] if (p["id"], t["attribute"], t["tag"]) not in REMOVE]
-        removed += len(p["per_tag"]) - len(kept)
+    total = matched = 0
+    prompts = [p for p in d["prompts"] if p["id"] in KEEP_IDS]
+    for p in prompts:
+        # apply manual tag renames (match the caption's wording)
+        for t in p["per_tag"]:
+            new = RENAME.get((p["id"], t["attribute"], t["tag"]))
+            if new:
+                t["tag"] = new
+        # caption-highlight aliases for this prompt
+        alias = {(a, tg): ph for (pid, a, tg), ph in HIGHLIGHT_ALIAS.items() if pid == p["id"]}
+        segments, unlocated = segment_caption(p["caption"], p["per_tag"], alias)
+        total += len(p["per_tag"])
+        matched += len(p["per_tag"]) - len(unlocated)
         models = {}
         for mk in MODEL_ORDER:
             m = dict(p["models"][mk])
             m.pop("source_audio", None)
-            # recompute MQAScore mean over the kept concepts
-            m["mqa_mean"] = {a: recompute_mean(kept, mk, a) for a in ("qwen3omni", "af", "mf")}
             models[mk] = m
         per_tag = [
             {"attribute": t["attribute"], "tag": t["tag"], "scores": t["scores"]}
-            for t in kept
+            for t in p["per_tag"]
         ]
-        segments, unlocated = segment_caption(p["caption"], kept)
-        total += len(kept)
-        matched += len(kept) - len(unlocated)
         out.append({
             "rank": p["rank"],
             "dataset": p["dataset"],
             "id": p["id"],
             "caption_segments": segments,
             "unlocated": unlocated,
-            "key_tag": KEY_OVERRIDE.get(p["id"], p["key_tag"]),
+            "key_tag": p["key_tag"],
             "key_spread": p["key_spread"],
             "winner": p["winner"],
             "loser": p["loser"],
@@ -111,8 +122,9 @@ def main():
             "models": models,
             "per_tag": per_tag,
         })
-    # order: musiccaps first, then sdd, each by rank
-    out.sort(key=lambda x: (0 if x["dataset"] == "musiccaps" else 1, x["rank"]))
+    # order: musiccaps first, then sdd, each following the KEEP list order
+    ds_rank = {"musiccaps": 0, "sdd": 1}
+    out.sort(key=lambda x: (ds_rank[x["dataset"]], KEEP[x["dataset"]].index(x["id"])))
     header = (
         "// Auto-generated from static/sota/selected_prompts.json by build_sota_data.py.\n"
         "// 20 prompts (10 MusicCaps + 10 Song Describer); 4 generators + GT per prompt.\n"
@@ -121,8 +133,8 @@ def main():
     )
     with open(OUT, "w") as f:
         f.write(header + json.dumps(out, ensure_ascii=False, indent=1) + ";\n")
-    print(f"wrote {OUT}: {len(out)} prompts; removed {removed} mis-annotated "
-          f"concepts; concepts located {matched}/{total}")
+    kept = {ds: [x["id"] for x in out if x["dataset"] == ds] for ds in ds_rank}
+    print(f"wrote {OUT}: kept {len(out)} prompts {kept}; concepts located {matched}/{total}")
 
 
 if __name__ == "__main__":

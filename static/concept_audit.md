@@ -2,16 +2,24 @@
 
 The clip-level concepts shown on the demo page are **auto-extracted by Qwen3-4B**
 (the paper's text-processing LLM) and are **not accuracy-checked** — the extractor's
-reliability is a known, unevaluated limitation. During a manual review of the demo
-prompts we found several concepts that are clearly mis-annotated (wrong dimension) or
-outside the paper's scope. These are **removed from the demo** (in the two build
-scripts) so the page does not present obviously-wrong concepts as ground truth. The
-underlying selection JSONs (`selected_pairs.json`, `selected_prompts.json`) are left
-untouched.
+reliability is a known, unevaluated limitation.
 
-Removal is conservative: only clearly-wrong concepts are dropped. Debatable cases are
-kept. When a concept is removed, the per-model **MQAScore mean** row is recomputed over
-the remaining concepts so each table stays internally consistent.
+We manually reviewed the extraction quality of every candidate and **keep only the
+5 samples per dataset with the cleanest extraction** (correct dimensions, good coverage,
+no under-extraction of salient concepts, no ungrounded/hallucinated concepts). The kept
+samples are listed in each build script's `KEEP` list and show their original, unmodified
+scores; the underlying selection JSONs are left untouched.
+
+- **MusicEval** → 5 of 10: `P060, P021, P017, P026, P006`
+- **MusicCaps** → 5 of 10: `cOsm3r-xKEE, bm5IT7e2vvI, D8-x1T8M4gk, y6iMm7Pltq0, D7pjR9cQChM`
+- **Song Describer** → 5 of 10: `387, 116, 291, 591, 138`
+
+Representative reasons a sample was **excluded**: clearly mis-labeled dimension
+(`instrument:female vocal`, `instrument:background`, `mood/theme:easy listening`,
+`mood/theme:contemporary`), out-of-scope tempo concept (`mood/theme:dizzying`),
+**hallucinated** concept not in the caption (SDD 592 `mood/theme:calm`), or heavy
+**under-extraction** (MusicEval P099 extracted only 2 concepts, missing "a cappella" and
+"studio recording").
 
 ## Naming
 
@@ -19,33 +27,34 @@ the remaining concepts so each table stays internally consistent.
   **Usage** ("the intended situational setting"). The page now displays it as **Usage**
   (internal key unchanged).
 
-## Removed concepts
+## Examples of excluded samples
 
-### MusicEval (section 1) — 3 removed
+| dataset | excluded | issue |
+|---|---|---|
+| MusicEval | P058 | `mood/theme:contemporary` — era/style, not an emotion |
+| MusicEval | P034 | `mood/theme:easy listening` — a genre/format, not an emotion |
+| MusicEval | P045 | `instrument:background` — not an instrument |
+| MusicEval | P099 | under-extraction — only 2 concepts; missed "a cappella" (genre) & "studio recording" (usage) |
+| MusicEval | P008 | under-extraction — missed "grand"/"majestic"; generic ungrounded `vocal:vocal` |
+| MusicCaps | _yXtw_z2xf4 | `mood/theme:dizzying` — from "dizzyingly high **tempo**"; tempo is excluded (Sec. 1) |
+| MusicCaps | RXk0lQJ7ttc | `instrument:female/male vocal` — vocals mis-filed as instruments |
+| MusicCaps | ihCl2ImrOYE | noisy 8-mood list (droning/recurring/insistent…); spoken vocal not captured |
+| MusicCaps | UzDVZzIIcy8 | thin — only 4 concepts, no genre/vocal/usage |
+| SDD | 592 | **hallucination** — key `mood/theme:calm` is not in the caption ("hopeful") |
+| SDD | 56 | missed "bongos" (instrument) & "bachata" (genre); typo-heavy caption |
+| SDD | 528 | `instrument:melody` — not an instrument |
 
-| prompt | removed concept | reason | side effect |
-|---|---|---|---|
-| P058 | `mood/theme : contemporary` | an era/style descriptor, not an emotion | none (non-anchor) |
-| P034 | `mood/theme : easy listening` | a genre/format, not an emotion | was the trade-off *opposite*; key tag `mood/theme:upbeat` kept, `tradeoff` set to false |
-| P045 | `instrument : background` | "background" is not an instrument | was the trade-off *opposite*; key tag `mood/theme:tranquil` kept, `tradeoff` set to false |
+## Manual concept fixes (SOTA build script)
 
-### SOTA generators (section 2) — 4 removed
+Two concepts were not found verbatim in their caption and were fixed so they highlight
+inline (keeping the scores intact):
 
-| prompt | removed concept | reason | side effect |
-|---|---|---|---|
-| 528 (SDD 03) | `instrument : melody` | "melody" is not an instrument | none (non-anchor) |
-| RXk0lQJ7ttc (MC 09) | `instrument : female vocal` | a vocal, mis-filed as instrument | was the **key tag**; re-pointed to the correctly-labeled `vocal : female vocal` (same concept, same winner `stable_audio_3 > acestep_1_5`, gap 0.852 vs 0.009) |
-| RXk0lQJ7ttc (MC 09) | `instrument : male vocal` | a vocal, mis-filed as instrument | none (the `vocal : male vocal` copy is kept) |
-| _yXtw_z2xf4 (MC 01) | `mood/theme : dizzying` | derived from "dizzyingly high **tempo**"; tempo is explicitly excluded in the paper (Sec. 1) | none (non-anchor) |
-
-## Not removed, but worth noting (kept as-is)
-
-- `vocal : vocal` (MC 01 key tag) and similar generic tags — generic but in the correct
-  dimension and a valid vocal-presence probe.
-- Several `context/usage` tags are vivid paraphrases of the caption
-  (`waiting for sunset`, `animals walking around`, `farm`) rather than verbatim; they are
-  still situational-usage concepts and are kept (shown as "also detected" when not found
-  verbatim in the caption text).
+- **y6iMm7Pltq0** — `vocal:male vocal` **renamed to `male voice`** (the caption says
+  "A male voice is singing"); same concept, now highlighted. (`RENAME`)
+- **116** — `instrument:acoustic guitar` keeps its label & scores, but now highlights the
+  word **"acoustic"** in "acoustic and electric guitars" (`HIGHLIGHT_ALIAS`). It is a
+  distinct concept from `electric guitar` (opposite per-model scores) and is this sample's
+  key tag, so it was **not** renamed to "electric guitars".
 
 ## Reproduce
 
@@ -54,5 +63,4 @@ cd static/MusicEval && python3 build_demo_data.py   # -> static/js/demo_data.js
 cd static/sota      && python3 build_sota_data.py    # -> static/js/sota_data.js
 ```
 
-Edit the `REMOVE` / `KEY_OVERRIDE` / `TRADEOFF_OFF` constants at the top of each build
-script to change the curation.
+Edit the `KEEP` list at the top of each build script to change which samples are shown.

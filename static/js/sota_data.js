@@ -3,390 +3,6 @@
 // caption_segments carry per-dimension concept spans for inline highlighting.
 window.SOTA_PROMPTS = [
  {
-  "rank": 1,
-  "dataset": "musiccaps",
-  "id": "_yXtw_z2xf4",
-  "caption_segments": [
-   {
-    "text": "This is a "
-   },
-   {
-    "text": "latin",
-    "dim": "genre",
-    "tag": "latin"
-   },
-   {
-    "text": " dance piece. There are two "
-   },
-   {
-    "text": "vocals",
-    "dim": "vocal",
-    "tag": "vocal"
-   },
-   {
-    "text": " taking turns singing the same line repeatedly. There is a "
-   },
-   {
-    "text": "keyboard",
-    "dim": "instrument",
-    "tag": "keyboard"
-   },
-   {
-    "text": " and a "
-   },
-   {
-    "text": "trumpet",
-    "dim": "instrument",
-    "tag": "trumpet"
-   },
-   {
-    "text": " playing the main melody. A fast-paced electronic percussion is playing in the rhythmic background. This is a dizzyingly high tempo song. It is very "
-   },
-   {
-    "text": "danceable",
-    "dim": "mood_theme",
-    "tag": "danceable"
-   },
-   {
-    "text": ". This piece can be played in "
-   },
-   {
-    "text": "latin nightclubs",
-    "dim": "context",
-    "tag": "latin nightclubs"
-   },
-   {
-    "text": " and "
-   },
-   {
-    "text": "latin dance courses",
-    "dim": "context",
-    "tag": "latin dance courses"
-   },
-   {
-    "text": "."
-   }
-  ],
-  "unlocated": [],
-  "key_tag": "vocal:vocal",
-  "key_spread": 0.945,
-  "winner": "meanaudio",
-  "loser": "stable_audio_3",
-  "tradeoff": true,
-  "clap_spread": 0.0039,
-  "aqa_spread": {
-   "qwen3omni": 0.3067,
-   "af": 0.8051,
-   "mf": 0.8024
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/musiccaps/01__yXtw_z2xf4/musicgen_large.wav",
-    "clap_caption": 0.4326,
-    "muq_caption": 0.4452,
-    "clap_pertag_mean": 0.2647,
-    "muq_pertag_mean": 0.2575,
-    "mqa_mean": {
-     "qwen3omni": 0.6303,
-     "af": 0.7619,
-     "mf": 0.647
-    },
-    "aqascore": {
-     "qwen3omni": 0.0141,
-     "af": 0.9876,
-     "mf": 0.9466
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/musiccaps/01__yXtw_z2xf4/stable_audio_3.wav",
-    "clap_caption": 0.4324,
-    "muq_caption": 0.5225,
-    "clap_pertag_mean": 0.3279,
-    "muq_pertag_mean": 0.2153,
-    "mqa_mean": {
-     "qwen3omni": 0.7267,
-     "af": 0.7604,
-     "mf": 0.5926
-    },
-    "aqascore": {
-     "qwen3omni": 0.0293,
-     "af": 0.977,
-     "mf": 0.1645
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/musiccaps/01__yXtw_z2xf4/meanaudio.wav",
-    "clap_caption": 0.429,
-    "muq_caption": 0.2169,
-    "clap_pertag_mean": 0.1334,
-    "muq_pertag_mean": 0.3239,
-    "mqa_mean": {
-     "qwen3omni": 0.8548,
-     "af": 0.8409,
-     "mf": 0.8116
-    },
-    "aqascore": {
-     "qwen3omni": 0.3208,
-     "af": 0.1825,
-     "mf": 0.9669
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/musiccaps/01__yXtw_z2xf4/acestep_1_5.wav",
-    "clap_caption": 0.4287,
-    "muq_caption": 0.3096,
-    "clap_pertag_mean": 0.2943,
-    "muq_pertag_mean": 0.2176,
-    "mqa_mean": {
-     "qwen3omni": 0.7989,
-     "af": 0.6703,
-     "mf": 0.5703
-    },
-    "aqascore": {
-     "qwen3omni": 0.0421,
-     "af": 0.5624,
-     "mf": 0.4688
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/musiccaps/01__yXtw_z2xf4/GT.wav",
-    "clap_caption": 0.2253,
-    "muq_caption": 0.4671,
-    "clap_pertag_mean": 0.1287,
-    "muq_pertag_mean": 0.3923,
-    "mqa_mean": {
-     "qwen3omni": 0.9392,
-     "af": 0.7698,
-     "mf": 0.698
-    },
-    "aqascore": {
-     "qwen3omni": 0.9964,
-     "af": 0.9924,
-     "mf": 0.9978
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "context",
-    "tag": "latin dance courses",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9996,
-      "af": 0.9941,
-      "mf": 0.9968
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9998,
-      "af": 0.9941,
-      "mf": 0.9924
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9997,
-      "af": 0.9579,
-      "mf": 0.977
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.999,
-      "af": 0.9841,
-      "mf": 0.9669
-     },
-     "GT": {
-      "qwen3omni": 0.9997,
-      "af": 0.9959,
-      "mf": 0.9983
-     }
-    }
-   },
-   {
-    "attribute": "context",
-    "tag": "latin nightclubs",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9987,
-      "af": 0.9914,
-      "mf": 0.9797
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9996,
-      "af": 0.989,
-      "mf": 0.9707
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9994,
-      "af": 0.9242,
-      "mf": 0.9324
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9959,
-      "af": 0.9707,
-      "mf": 0.9324
-     },
-     "GT": {
-      "qwen3omni": 0.9992,
-      "af": 0.9948,
-      "mf": 0.9948
-     }
-    }
-   },
-   {
-    "attribute": "genre",
-    "tag": "latin",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.999,
-      "af": 0.9579,
-      "mf": 0.7982
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9959,
-      "af": 0.8934,
-      "mf": 0.6513
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9994,
-      "af": 0.9876,
-      "mf": 0.974
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9981,
-      "af": 0.6794,
-      "mf": 0.7549
-     },
-     "GT": {
-      "qwen3omni": 0.9993,
-      "af": 0.9914,
-      "mf": 0.9914
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "keyboard",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.2227,
-      "af": 0.5002,
-      "mf": 0.6792
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.0851,
-      "af": 0.7059,
-      "mf": 0.3776
-     },
-     "meanaudio": {
-      "qwen3omni": 0.0421,
-      "af": 0.1193,
-      "mf": 0.1481
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.7773,
-      "af": 0.7059,
-      "mf": 0.3208
-     },
-     "GT": {
-      "qwen3omni": 0.6792,
-      "af": 0.3489,
-      "mf": 0.6514
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "trumpet",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.1824,
-      "af": 0.6515,
-      "mf": 0.0759
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9988,
-      "af": 0.5002,
-      "mf": 0.1481
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9903,
-      "af": 0.9399,
-      "mf": 0.7982
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.7549,
-      "af": 0.2454,
-      "mf": 0.0076
-     },
-     "GT": {
-      "qwen3omni": 0.9046,
-      "af": 0.0676,
-      "mf": 0.0293
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "danceable",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9998,
-      "af": 0.9933,
-      "mf": 0.9954
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9999,
-      "af": 0.9948,
-      "mf": 0.9983
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9998,
-      "af": 0.9669,
-      "mf": 0.9707
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9997,
-      "af": 0.9876,
-      "mf": 0.9954
-     },
-     "GT": {
-      "qwen3omni": 0.9998,
-      "af": 0.9975,
-      "mf": 0.9981
-     }
-    }
-   },
-   {
-    "attribute": "vocal",
-    "tag": "vocal",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.0097,
-      "af": 0.2452,
-      "mf": 0.0041
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.0076,
-      "af": 0.2453,
-      "mf": 0.0097
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9526,
-      "af": 0.9903,
-      "mf": 0.8808
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0675,
-      "af": 0.1193,
-      "mf": 0.0141
-     },
-     "GT": {
-      "qwen3omni": 0.9924,
-      "af": 0.9924,
-      "mf": 0.2227
-     }
-    }
-   }
-  ]
- },
- {
   "rank": 2,
   "dataset": "musiccaps",
   "id": "cOsm3r-xKEE",
@@ -927,6 +543,429 @@ window.SOTA_PROMPTS = [
   ]
  },
  {
+  "rank": 4,
+  "dataset": "musiccaps",
+  "id": "bm5IT7e2vvI",
+  "caption_segments": [
+   {
+    "text": "This is a Mexican "
+   },
+   {
+    "text": "folk music",
+    "dim": "genre",
+    "tag": "folk music"
+   },
+   {
+    "text": " piece. The main theme is played by a "
+   },
+   {
+    "text": "marimba",
+    "dim": "instrument",
+    "tag": "marimba"
+   },
+   {
+    "text": ". There is a "
+   },
+   {
+    "text": "bass guitar",
+    "dim": "instrument",
+    "tag": "bass guitar"
+   },
+   {
+    "text": " in the background. The "
+   },
+   {
+    "text": "acoustic drums",
+    "dim": "instrument",
+    "tag": "acoustic drums"
+   },
+   {
+    "text": " and the "
+   },
+   {
+    "text": "latin percussion",
+    "dim": "instrument",
+    "tag": "latin percussion"
+   },
+   {
+    "text": " provide the rhythmic background for the piece. It has a very "
+   },
+   {
+    "text": "playful",
+    "dim": "mood_theme",
+    "tag": "playful"
+   },
+   {
+    "text": " atmosphere. The music could definitely be used in a "
+   },
+   {
+    "text": "children's movie/TV show",
+    "dim": "context",
+    "tag": "children's movie/TV show"
+   },
+   {
+    "text": " or an "
+   },
+   {
+    "text": "advertisement targeted at kids",
+    "dim": "context",
+    "tag": "advertisement targeted at kids"
+   },
+   {
+    "text": "."
+   }
+  ],
+  "unlocated": [],
+  "key_tag": "genre:folk music",
+  "key_spread": 0.9342,
+  "winner": "musicgen_large",
+  "loser": "acestep_1_5",
+  "tradeoff": true,
+  "clap_spread": 0.0304,
+  "aqa_spread": {
+   "qwen3omni": 0.1059,
+   "af": 0.773,
+   "mf": 0.2005
+  },
+  "models": {
+   "musicgen_large": {
+    "demo_audio": "audio/musiccaps/04_bm5IT7e2vvI/musicgen_large.wav",
+    "clap_caption": 0.4144,
+    "muq_caption": 0.5615,
+    "clap_pertag_mean": 0.2765,
+    "muq_pertag_mean": 0.1274,
+    "mqa_mean": {
+     "qwen3omni": 0.7097,
+     "af": 0.7162,
+     "mf": 0.6115
+    },
+    "aqascore": {
+     "qwen3omni": 0.852,
+     "af": 0.9399,
+     "mf": 0.989
+    }
+   },
+   "stable_audio_3": {
+    "demo_audio": "audio/musiccaps/04_bm5IT7e2vvI/stable_audio_3.wav",
+    "clap_caption": 0.384,
+    "muq_caption": 0.5762,
+    "clap_pertag_mean": 0.2984,
+    "muq_pertag_mean": 0.179,
+    "mqa_mean": {
+     "qwen3omni": 0.6334,
+     "af": 0.6676,
+     "mf": 0.6478
+    },
+    "aqascore": {
+     "qwen3omni": 0.9399,
+     "af": 0.5929,
+     "mf": 0.8355
+    }
+   },
+   "meanaudio": {
+    "demo_audio": "audio/musiccaps/04_bm5IT7e2vvI/meanaudio.wav",
+    "clap_caption": 0.3987,
+    "muq_caption": 0.2552,
+    "clap_pertag_mean": 0.201,
+    "muq_pertag_mean": 0.2125,
+    "mqa_mean": {
+     "qwen3omni": 0.6946,
+     "af": 0.6231,
+     "mf": 0.9002
+    },
+    "aqascore": {
+     "qwen3omni": 0.9579,
+     "af": 0.9959,
+     "mf": 0.9987
+    }
+   },
+   "acestep_1_5": {
+    "demo_audio": "audio/musiccaps/04_bm5IT7e2vvI/acestep_1_5.wav",
+    "clap_caption": 0.4072,
+    "muq_caption": 0.3179,
+    "clap_pertag_mean": 0.2939,
+    "muq_pertag_mean": 0.1713,
+    "mqa_mean": {
+     "qwen3omni": 0.6059,
+     "af": 0.5803,
+     "mf": 0.6223
+    },
+    "aqascore": {
+     "qwen3omni": 0.9241,
+     "af": 0.2229,
+     "mf": 0.7982
+    }
+   },
+   "GT": {
+    "demo_audio": "audio/musiccaps/04_bm5IT7e2vvI/GT.wav",
+    "clap_caption": 0.2738,
+    "muq_caption": 0.1945,
+    "clap_pertag_mean": 0.0905,
+    "muq_pertag_mean": 0.1025,
+    "mqa_mean": {
+     "qwen3omni": 0.6967,
+     "af": 0.7235,
+     "mf": 0.7204
+    },
+    "aqascore": {
+     "qwen3omni": 0.9797,
+     "af": 0.9797,
+     "mf": 0.9985
+    }
+   }
+  },
+  "per_tag": [
+   {
+    "attribute": "context",
+    "tag": "advertisement targeted at kids",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.982,
+      "af": 0.7311,
+      "mf": 0.974
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.9997,
+      "af": 0.9324,
+      "mf": 0.9933
+     },
+     "meanaudio": {
+      "qwen3omni": 0.974,
+      "af": 0.2019,
+      "mf": 0.6514
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.9996,
+      "af": 0.9627,
+      "mf": 0.9941
+     },
+     "GT": {
+      "qwen3omni": 0.5622,
+      "af": 0.7059,
+      "mf": 0.9903
+     }
+    }
+   },
+   {
+    "attribute": "context",
+    "tag": "children's movie/TV show",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.9948,
+      "af": 0.8176,
+      "mf": 0.9859
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.9996,
+      "af": 0.974,
+      "mf": 0.9972
+     },
+     "meanaudio": {
+      "qwen3omni": 0.9876,
+      "af": 0.5928,
+      "mf": 0.9526
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.9994,
+      "af": 0.977,
+      "mf": 0.9964
+     },
+     "GT": {
+      "qwen3omni": 0.7773,
+      "af": 0.8176,
+      "mf": 0.9933
+     }
+    }
+   },
+   {
+    "attribute": "genre",
+    "tag": "folk music",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.9466,
+      "af": 0.469,
+      "mf": 0.5312
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.018,
+      "af": 0.2229,
+      "mf": 0.0601
+     },
+     "meanaudio": {
+      "qwen3omni": 0.5927,
+      "af": 0.5314,
+      "mf": 0.7982
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.0124,
+      "af": 0.1482,
+      "mf": 0.3487
+     },
+     "GT": {
+      "qwen3omni": 0.0086,
+      "af": 0.4076,
+      "mf": 0.0331
+     }
+    }
+   },
+   {
+    "attribute": "instrument",
+    "tag": "acoustic drums",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.269,
+      "af": 0.7059,
+      "mf": 0.2451
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.6225,
+      "af": 0.1827,
+      "mf": 0.1824
+     },
+     "meanaudio": {
+      "qwen3omni": 0.0534,
+      "af": 0.4691,
+      "mf": 0.9579
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.0006,
+      "af": 0.1647,
+      "mf": 0.0534
+     },
+     "GT": {
+      "qwen3omni": 0.9903,
+      "af": 0.7312,
+      "mf": 0.7773
+     }
+    }
+   },
+   {
+    "attribute": "instrument",
+    "tag": "bass guitar",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.0954,
+      "af": 0.755,
+      "mf": 0.1645
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.0331,
+      "af": 0.1647,
+      "mf": 0.0954
+     },
+     "meanaudio": {
+      "qwen3omni": 0.0046,
+      "af": 0.2945,
+      "mf": 0.9325
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.0097,
+      "af": 0.1068,
+      "mf": 0.0421
+     },
+     "GT": {
+      "qwen3omni": 0.2942,
+      "af": 0.1647,
+      "mf": 0.026
+     }
+    }
+   },
+   {
+    "attribute": "instrument",
+    "tag": "latin percussion",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.9241,
+      "af": 0.9627,
+      "mf": 0.9876
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.4073,
+      "af": 0.9241,
+      "mf": 0.9046
+     },
+     "meanaudio": {
+      "qwen3omni": 0.9988,
+      "af": 0.9975,
+      "mf": 0.9995
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.8355,
+      "af": 0.5003,
+      "mf": 0.7311
+     },
+     "GT": {
+      "qwen3omni": 0.989,
+      "af": 0.9876,
+      "mf": 0.9707
+     }
+    }
+   },
+   {
+    "attribute": "instrument",
+    "tag": "marimba",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.4688,
+      "af": 0.3211,
+      "mf": 0.0331
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.9876,
+      "af": 0.9525,
+      "mf": 0.9526
+     },
+     "meanaudio": {
+      "qwen3omni": 0.9466,
+      "af": 0.9579,
+      "mf": 0.9466
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.9903,
+      "af": 0.7983,
+      "mf": 0.8176
+     },
+     "GT": {
+      "qwen3omni": 0.9526,
+      "af": 0.9876,
+      "mf": 0.977
+     }
+    }
+   },
+   {
+    "attribute": "mood_theme",
+    "tag": "playful",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.9972,
+      "af": 0.9669,
+      "mf": 0.9707
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.9998,
+      "af": 0.9876,
+      "mf": 0.9968
+     },
+     "meanaudio": {
+      "qwen3omni": 0.9992,
+      "af": 0.9399,
+      "mf": 0.9627
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.9999,
+      "af": 0.9841,
+      "mf": 0.9954
+     },
+     "GT": {
+      "qwen3omni": 0.9996,
+      "af": 0.9859,
+      "mf": 0.9954
+     }
+    }
+   }
+  ]
+ },
+ {
   "rank": 3,
   "dataset": "musiccaps",
   "id": "D8-x1T8M4gk",
@@ -1436,1041 +1475,6 @@ window.SOTA_PROMPTS = [
   ]
  },
  {
-  "rank": 4,
-  "dataset": "musiccaps",
-  "id": "bm5IT7e2vvI",
-  "caption_segments": [
-   {
-    "text": "This is a Mexican "
-   },
-   {
-    "text": "folk music",
-    "dim": "genre",
-    "tag": "folk music"
-   },
-   {
-    "text": " piece. The main theme is played by a "
-   },
-   {
-    "text": "marimba",
-    "dim": "instrument",
-    "tag": "marimba"
-   },
-   {
-    "text": ". There is a "
-   },
-   {
-    "text": "bass guitar",
-    "dim": "instrument",
-    "tag": "bass guitar"
-   },
-   {
-    "text": " in the background. The "
-   },
-   {
-    "text": "acoustic drums",
-    "dim": "instrument",
-    "tag": "acoustic drums"
-   },
-   {
-    "text": " and the "
-   },
-   {
-    "text": "latin percussion",
-    "dim": "instrument",
-    "tag": "latin percussion"
-   },
-   {
-    "text": " provide the rhythmic background for the piece. It has a very "
-   },
-   {
-    "text": "playful",
-    "dim": "mood_theme",
-    "tag": "playful"
-   },
-   {
-    "text": " atmosphere. The music could definitely be used in a "
-   },
-   {
-    "text": "children's movie/TV show",
-    "dim": "context",
-    "tag": "children's movie/TV show"
-   },
-   {
-    "text": " or an "
-   },
-   {
-    "text": "advertisement targeted at kids",
-    "dim": "context",
-    "tag": "advertisement targeted at kids"
-   },
-   {
-    "text": "."
-   }
-  ],
-  "unlocated": [],
-  "key_tag": "genre:folk music",
-  "key_spread": 0.9342,
-  "winner": "musicgen_large",
-  "loser": "acestep_1_5",
-  "tradeoff": true,
-  "clap_spread": 0.0304,
-  "aqa_spread": {
-   "qwen3omni": 0.1059,
-   "af": 0.773,
-   "mf": 0.2005
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/musiccaps/04_bm5IT7e2vvI/musicgen_large.wav",
-    "clap_caption": 0.4144,
-    "muq_caption": 0.5615,
-    "clap_pertag_mean": 0.2765,
-    "muq_pertag_mean": 0.1274,
-    "mqa_mean": {
-     "qwen3omni": 0.7097,
-     "af": 0.7162,
-     "mf": 0.6115
-    },
-    "aqascore": {
-     "qwen3omni": 0.852,
-     "af": 0.9399,
-     "mf": 0.989
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/musiccaps/04_bm5IT7e2vvI/stable_audio_3.wav",
-    "clap_caption": 0.384,
-    "muq_caption": 0.5762,
-    "clap_pertag_mean": 0.2984,
-    "muq_pertag_mean": 0.179,
-    "mqa_mean": {
-     "qwen3omni": 0.6335,
-     "af": 0.6676,
-     "mf": 0.6478
-    },
-    "aqascore": {
-     "qwen3omni": 0.9399,
-     "af": 0.5929,
-     "mf": 0.8355
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/musiccaps/04_bm5IT7e2vvI/meanaudio.wav",
-    "clap_caption": 0.3987,
-    "muq_caption": 0.2552,
-    "clap_pertag_mean": 0.201,
-    "muq_pertag_mean": 0.2125,
-    "mqa_mean": {
-     "qwen3omni": 0.6946,
-     "af": 0.6231,
-     "mf": 0.9002
-    },
-    "aqascore": {
-     "qwen3omni": 0.9579,
-     "af": 0.9959,
-     "mf": 0.9987
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/musiccaps/04_bm5IT7e2vvI/acestep_1_5.wav",
-    "clap_caption": 0.4072,
-    "muq_caption": 0.3179,
-    "clap_pertag_mean": 0.2939,
-    "muq_pertag_mean": 0.1713,
-    "mqa_mean": {
-     "qwen3omni": 0.6059,
-     "af": 0.5803,
-     "mf": 0.6223
-    },
-    "aqascore": {
-     "qwen3omni": 0.9241,
-     "af": 0.2229,
-     "mf": 0.7982
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/musiccaps/04_bm5IT7e2vvI/GT.wav",
-    "clap_caption": 0.2738,
-    "muq_caption": 0.1945,
-    "clap_pertag_mean": 0.0905,
-    "muq_pertag_mean": 0.1025,
-    "mqa_mean": {
-     "qwen3omni": 0.6967,
-     "af": 0.7235,
-     "mf": 0.7204
-    },
-    "aqascore": {
-     "qwen3omni": 0.9797,
-     "af": 0.9797,
-     "mf": 0.9985
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "context",
-    "tag": "advertisement targeted at kids",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.982,
-      "af": 0.7311,
-      "mf": 0.974
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9997,
-      "af": 0.9324,
-      "mf": 0.9933
-     },
-     "meanaudio": {
-      "qwen3omni": 0.974,
-      "af": 0.2019,
-      "mf": 0.6514
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9996,
-      "af": 0.9627,
-      "mf": 0.9941
-     },
-     "GT": {
-      "qwen3omni": 0.5622,
-      "af": 0.7059,
-      "mf": 0.9903
-     }
-    }
-   },
-   {
-    "attribute": "context",
-    "tag": "children's movie/TV show",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9948,
-      "af": 0.8176,
-      "mf": 0.9859
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9996,
-      "af": 0.974,
-      "mf": 0.9972
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9876,
-      "af": 0.5928,
-      "mf": 0.9526
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9994,
-      "af": 0.977,
-      "mf": 0.9964
-     },
-     "GT": {
-      "qwen3omni": 0.7773,
-      "af": 0.8176,
-      "mf": 0.9933
-     }
-    }
-   },
-   {
-    "attribute": "genre",
-    "tag": "folk music",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9466,
-      "af": 0.469,
-      "mf": 0.5312
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.018,
-      "af": 0.2229,
-      "mf": 0.0601
-     },
-     "meanaudio": {
-      "qwen3omni": 0.5927,
-      "af": 0.5314,
-      "mf": 0.7982
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0124,
-      "af": 0.1482,
-      "mf": 0.3487
-     },
-     "GT": {
-      "qwen3omni": 0.0086,
-      "af": 0.4076,
-      "mf": 0.0331
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "acoustic drums",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.269,
-      "af": 0.7059,
-      "mf": 0.2451
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.6225,
-      "af": 0.1827,
-      "mf": 0.1824
-     },
-     "meanaudio": {
-      "qwen3omni": 0.0534,
-      "af": 0.4691,
-      "mf": 0.9579
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0006,
-      "af": 0.1647,
-      "mf": 0.0534
-     },
-     "GT": {
-      "qwen3omni": 0.9903,
-      "af": 0.7312,
-      "mf": 0.7773
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "bass guitar",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.0954,
-      "af": 0.755,
-      "mf": 0.1645
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.0331,
-      "af": 0.1647,
-      "mf": 0.0954
-     },
-     "meanaudio": {
-      "qwen3omni": 0.0046,
-      "af": 0.2945,
-      "mf": 0.9325
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0097,
-      "af": 0.1068,
-      "mf": 0.0421
-     },
-     "GT": {
-      "qwen3omni": 0.2942,
-      "af": 0.1647,
-      "mf": 0.026
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "latin percussion",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9241,
-      "af": 0.9627,
-      "mf": 0.9876
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.4073,
-      "af": 0.9241,
-      "mf": 0.9046
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9988,
-      "af": 0.9975,
-      "mf": 0.9995
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.8355,
-      "af": 0.5003,
-      "mf": 0.7311
-     },
-     "GT": {
-      "qwen3omni": 0.989,
-      "af": 0.9876,
-      "mf": 0.9707
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "marimba",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.4688,
-      "af": 0.3211,
-      "mf": 0.0331
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9876,
-      "af": 0.9525,
-      "mf": 0.9526
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9466,
-      "af": 0.9579,
-      "mf": 0.9466
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9903,
-      "af": 0.7983,
-      "mf": 0.8176
-     },
-     "GT": {
-      "qwen3omni": 0.9526,
-      "af": 0.9876,
-      "mf": 0.977
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "playful",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9972,
-      "af": 0.9669,
-      "mf": 0.9707
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9998,
-      "af": 0.9876,
-      "mf": 0.9968
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9992,
-      "af": 0.9399,
-      "mf": 0.9627
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9999,
-      "af": 0.9841,
-      "mf": 0.9954
-     },
-     "GT": {
-      "qwen3omni": 0.9996,
-      "af": 0.9859,
-      "mf": 0.9954
-     }
-    }
-   }
-  ]
- },
- {
-  "rank": 5,
-  "dataset": "musiccaps",
-  "id": "-8cgbhIR_pw",
-  "caption_segments": [
-   {
-    "text": "The low quality recording features a cover of a "
-   },
-   {
-    "text": "ballad",
-    "dim": "genre",
-    "tag": "ballad"
-   },
-   {
-    "text": " song that consists of "
-   },
-   {
-    "text": "passionate",
-    "dim": "mood_theme",
-    "tag": "passionate"
-   },
-   {
-    "text": ", muddy "
-   },
-   {
-    "text": "male vocal",
-    "dim": "vocal",
-    "tag": "male vocal"
-   },
-   {
-    "text": " singing over arpeggiated "
-   },
-   {
-    "text": "acoustic guitar",
-    "dim": "instrument",
-    "tag": "acoustic guitar"
-   },
-   {
-    "text": " melody. It sounds noisy, muddy and messy, as the frequencies are clashing, but it is also "
-   },
-   {
-    "text": "emotional",
-    "dim": "mood_theme",
-    "tag": "emotional"
-   },
-   {
-    "text": " and "
-   },
-   {
-    "text": "raw",
-    "dim": "mood_theme",
-    "tag": "raw"
-   },
-   {
-    "text": "."
-   }
-  ],
-  "unlocated": [],
-  "key_tag": "vocal:male vocal",
-  "key_spread": 0.9965,
-  "winner": "stable_audio_3",
-  "loser": "meanaudio",
-  "tradeoff": true,
-  "clap_spread": 0.0315,
-  "aqa_spread": {
-   "qwen3omni": 0.992,
-   "af": 0.4862,
-   "mf": 0.7706
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/musiccaps/05_-8cgbhIR_pw/musicgen_large.wav",
-    "clap_caption": 0.2769,
-    "muq_caption": 0.3463,
-    "clap_pertag_mean": 0.1995,
-    "muq_pertag_mean": 0.1474,
-    "mqa_mean": {
-     "qwen3omni": 0.7757,
-     "af": 0.6203,
-     "mf": 0.5762
-    },
-    "aqascore": {
-     "qwen3omni": 0.0159,
-     "af": 0.7982,
-     "mf": 0.852
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/musiccaps/05_-8cgbhIR_pw/stable_audio_3.wav",
-    "clap_caption": 0.2576,
-    "muq_caption": 0.5499,
-    "clap_pertag_mean": 0.1992,
-    "muq_pertag_mean": 0.2975,
-    "mqa_mean": {
-     "qwen3omni": 0.8484,
-     "af": 0.8672,
-     "mf": 0.8868
-    },
-    "aqascore": {
-     "qwen3omni": 0.9972,
-     "af": 0.9242,
-     "mf": 0.9933
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/musiccaps/05_-8cgbhIR_pw/meanaudio.wav",
-    "clap_caption": 0.2483,
-    "muq_caption": 0.3303,
-    "clap_pertag_mean": 0.0867,
-    "muq_pertag_mean": 0.1258,
-    "mqa_mean": {
-     "qwen3omni": 0.7998,
-     "af": 0.5071,
-     "mf": 0.6044
-    },
-    "aqascore": {
-     "qwen3omni": 0.0159,
-     "af": 0.8933,
-     "mf": 0.9526
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/musiccaps/05_-8cgbhIR_pw/acestep_1_5.wav",
-    "clap_caption": 0.2454,
-    "muq_caption": 0.0603,
-    "clap_pertag_mean": 0.1482,
-    "muq_pertag_mean": -0.0264,
-    "mqa_mean": {
-     "qwen3omni": 0.3306,
-     "af": 0.4335,
-     "mf": 0.4101
-    },
-    "aqascore": {
-     "qwen3omni": 0.0052,
-     "af": 0.438,
-     "mf": 0.2227
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/musiccaps/05_-8cgbhIR_pw/GT.wav",
-    "clap_caption": 0.2223,
-    "muq_caption": 0.4601,
-    "clap_pertag_mean": 0.259,
-    "muq_pertag_mean": 0.2326,
-    "mqa_mean": {
-     "qwen3omni": 0.8061,
-     "af": 0.824,
-     "mf": 0.8898
-    },
-    "aqascore": {
-     "qwen3omni": 0.9669,
-     "af": 0.9466,
-     "mf": 0.9903
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "genre",
-    "tag": "ballad",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9797,
-      "af": 0.202,
-      "mf": 0.0676
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9876,
-      "af": 0.6517,
-      "mf": 0.9859
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9325,
-      "af": 0.3779,
-      "mf": 0.1481
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.1067,
-      "af": 0.223,
-      "mf": 0.0534
-     },
-     "GT": {
-      "qwen3omni": 0.9954,
-      "af": 0.6515,
-      "mf": 0.982
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "acoustic guitar",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9964,
-      "af": 0.9707,
-      "mf": 0.9526
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9978,
-      "af": 0.982,
-      "mf": 0.9797
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9992,
-      "af": 0.9933,
-      "mf": 0.9975
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.7982,
-      "af": 0.982,
-      "mf": 0.974
-     },
-     "GT": {
-      "qwen3omni": 0.9983,
-      "af": 0.9841,
-      "mf": 0.982
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "emotional",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9978,
-      "af": 0.9669,
-      "mf": 0.977
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9579,
-      "af": 0.9797,
-      "mf": 0.982
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9933,
-      "af": 0.9466,
-      "mf": 0.9466
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9627,
-      "af": 0.9241,
-      "mf": 0.9325
-     },
-     "GT": {
-      "qwen3omni": 0.9981,
-      "af": 0.9859,
-      "mf": 0.9924
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "passionate",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.7982,
-      "af": 0.8355,
-      "mf": 0.8933
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.269,
-      "af": 0.8176,
-      "mf": 0.7549
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9149,
-      "af": 0.2229,
-      "mf": 0.7773
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0373,
-      "af": 0.2944,
-      "mf": 0.4378
-     },
-     "GT": {
-      "qwen3omni": 0.018,
-      "af": 0.867,
-      "mf": 0.6514
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "raw",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.8808,
-      "af": 0.6793,
-      "mf": 0.5622
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.8808,
-      "af": 0.7983,
-      "mf": 0.6225
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9579,
-      "af": 0.469,
-      "mf": 0.7549
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0759,
-      "af": 0.1482,
-      "mf": 0.0601
-     },
-     "GT": {
-      "qwen3omni": 0.8355,
-      "af": 0.5313,
-      "mf": 0.7982
-     }
-    }
-   },
-   {
-    "attribute": "vocal",
-    "tag": "male vocal",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.0012,
-      "af": 0.0676,
-      "mf": 0.0046
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9975,
-      "af": 0.974,
-      "mf": 0.9959
-     },
-     "meanaudio": {
-      "qwen3omni": 0.001,
-      "af": 0.0331,
-      "mf": 0.0019
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0028,
-      "af": 0.0293,
-      "mf": 0.0025
-     },
-     "GT": {
-      "qwen3omni": 0.9914,
-      "af": 0.9242,
-      "mf": 0.9325
-     }
-    }
-   }
-  ]
- },
- {
-  "rank": 6,
-  "dataset": "musiccaps",
-  "id": "UzDVZzIIcy8",
-  "caption_segments": [
-   {
-    "text": "The low quality recording features a wide sustained "
-   },
-   {
-    "text": "strings",
-    "dim": "instrument",
-    "tag": "strings"
-   },
-   {
-    "text": " melody and natural sound effects in the background that consist of reverberant birds chirping and water flowing sound effects. It sounds "
-   },
-   {
-    "text": "calming",
-    "dim": "mood_theme",
-    "tag": "calming"
-   },
-   {
-    "text": ", "
-   },
-   {
-    "text": "relaxing",
-    "dim": "mood_theme",
-    "tag": "relaxing"
-   },
-   {
-    "text": " and "
-   },
-   {
-    "text": "emotional",
-    "dim": "mood_theme",
-    "tag": "emotional"
-   },
-   {
-    "text": "."
-   }
-  ],
-  "unlocated": [],
-  "key_tag": "mood_theme:calming",
-  "key_spread": 0.9042,
-  "winner": "meanaudio",
-  "loser": "stable_audio_3",
-  "tradeoff": true,
-  "clap_spread": 0.0319,
-  "aqa_spread": {
-   "qwen3omni": 0.7299,
-   "af": 0.1081,
-   "mf": 0.3651
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/musiccaps/06_UzDVZzIIcy8/musicgen_large.wav",
-    "clap_caption": 0.3386,
-    "muq_caption": 0.3113,
-    "clap_pertag_mean": 0.0842,
-    "muq_pertag_mean": 0.0998,
-    "mqa_mean": {
-     "qwen3omni": 0.932,
-     "af": 0.9435,
-     "mf": 0.3482
-    },
-    "aqascore": {
-     "qwen3omni": 0.9972,
-     "af": 0.977,
-     "mf": 0.8176
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/musiccaps/06_UzDVZzIIcy8/stable_audio_3.wav",
-    "clap_caption": 0.3437,
-    "muq_caption": 0.3098,
-    "clap_pertag_mean": 0.2093,
-    "muq_pertag_mean": 0.2501,
-    "mqa_mean": {
-     "qwen3omni": 0.5728,
-     "af": 0.796,
-     "mf": 0.5944
-    },
-    "aqascore": {
-     "qwen3omni": 0.2689,
-     "af": 0.8809,
-     "mf": 0.6225
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/musiccaps/06_UzDVZzIIcy8/meanaudio.wav",
-    "clap_caption": 0.3245,
-    "muq_caption": 0.3706,
-    "clap_pertag_mean": 0.0973,
-    "muq_pertag_mean": 0.1896,
-    "mqa_mean": {
-     "qwen3omni": 0.8451,
-     "af": 0.8299,
-     "mf": 0.7317
-    },
-    "aqascore": {
-     "qwen3omni": 0.9914,
-     "af": 0.989,
-     "mf": 0.9876
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/musiccaps/06_UzDVZzIIcy8/acestep_1_5.wav",
-    "clap_caption": 0.3118,
-    "muq_caption": 0.1646,
-    "clap_pertag_mean": 0.2468,
-    "muq_pertag_mean": -0.0257,
-    "mqa_mean": {
-     "qwen3omni": 0.9949,
-     "af": 0.8552,
-     "mf": 0.9167
-    },
-    "aqascore": {
-     "qwen3omni": 0.9988,
-     "af": 0.9707,
-     "mf": 0.7311
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/musiccaps/06_UzDVZzIIcy8/GT.wav",
-    "clap_caption": 0.355,
-    "muq_caption": 0.4448,
-    "clap_pertag_mean": 0.2832,
-    "muq_pertag_mean": 0.275,
-    "mqa_mean": {
-     "qwen3omni": 0.9989,
-     "af": 0.9926,
-     "mf": 0.9466
-    },
-    "aqascore": {
-     "qwen3omni": 0.9997,
-     "af": 0.9948,
-     "mf": 0.9797
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "instrument",
-    "tag": "strings",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.7549,
-      "af": 0.8355,
-      "mf": 0.1824
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.989,
-      "af": 0.982,
-      "mf": 0.7773
-     },
-     "meanaudio": {
-      "qwen3omni": 0.4073,
-      "af": 0.6793,
-      "mf": 0.6514
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9941,
-      "af": 0.9707,
-      "mf": 0.9707
-     },
-     "GT": {
-      "qwen3omni": 0.9987,
-      "af": 0.9941,
-      "mf": 0.9399
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "calming",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9993,
-      "af": 0.9876,
-      "mf": 0.1481
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.0954,
-      "af": 0.7312,
-      "mf": 0.4378
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9995,
-      "af": 0.9526,
-      "mf": 0.5312
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9948,
-      "af": 0.852,
-      "mf": 0.9046
-     },
-     "GT": {
-      "qwen3omni": 0.9997,
-      "af": 0.9954,
-      "mf": 0.9399
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "emotional",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.974,
-      "af": 0.974,
-      "mf": 0.977
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9841,
-      "af": 0.9707,
-      "mf": 0.8933
-     },
-     "meanaudio": {
-      "qwen3omni": 0.974,
-      "af": 0.982,
-      "mf": 0.9669
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9972,
-      "af": 0.9466,
-      "mf": 0.974
-     },
-     "GT": {
-      "qwen3omni": 0.9975,
-      "af": 0.9859,
-      "mf": 0.9669
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "relaxing",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9996,
-      "af": 0.977,
-      "mf": 0.0851
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.2227,
-      "af": 0.5002,
-      "mf": 0.269
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9998,
-      "af": 0.7059,
-      "mf": 0.7773
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9933,
-      "af": 0.6515,
-      "mf": 0.8176
-     },
-     "GT": {
-      "qwen3omni": 0.9997,
-      "af": 0.9948,
-      "mf": 0.9399
-     }
-    }
-   }
-  ]
- },
- {
   "rank": 7,
   "dataset": "musiccaps",
   "id": "y6iMm7Pltq0",
@@ -2500,7 +1504,15 @@ window.SOTA_PROMPTS = [
     "tag": "flute"
    },
    {
-    "text": " is playing the same melody in the higher mid-range. A male voice is singing along. Someone is playing "
+    "text": " is playing the same melody in the higher mid-range. A "
+   },
+   {
+    "text": "male voice",
+    "dim": "vocal",
+    "tag": "male voice"
+   },
+   {
+    "text": " is singing along. Someone is playing "
    },
    {
     "text": "tabla",
@@ -2535,12 +1547,7 @@ window.SOTA_PROMPTS = [
     "text": "."
    }
   ],
-  "unlocated": [
-   {
-    "dim": "vocal",
-    "tag": "male vocal"
-   }
-  ],
+  "unlocated": [],
   "key_tag": "mood_theme:calm",
   "key_spread": 0.9873,
   "winner": "musicgen_large",
@@ -2594,7 +1601,7 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.1616,
     "muq_pertag_mean": 0.3055,
     "mqa_mean": {
-     "qwen3omni": 0.6307,
+     "qwen3omni": 0.6306,
      "af": 0.8024,
      "mf": 0.6793
     },
@@ -2629,7 +1636,7 @@ window.SOTA_PROMPTS = [
     "muq_pertag_mean": 0.3196,
     "mqa_mean": {
      "qwen3omni": 0.7482,
-     "af": 0.6945,
+     "af": 0.6944,
      "mf": 0.5513
     },
     "aqascore": {
@@ -2859,7 +1866,7 @@ window.SOTA_PROMPTS = [
    },
    {
     "attribute": "vocal",
-    "tag": "male vocal",
+    "tag": "male voice",
     "scores": {
      "musicgen_large": {
       "qwen3omni": 0.001,
@@ -2885,998 +1892,6 @@ window.SOTA_PROMPTS = [
       "qwen3omni": 0.9047,
       "af": 0.2945,
       "mf": 0.4378
-     }
-    }
-   }
-  ]
- },
- {
-  "rank": 8,
-  "dataset": "musiccaps",
-  "id": "ihCl2ImrOYE",
-  "caption_segments": [
-   {
-    "text": "This music is instrumental. The tempo is slow with the resounding vibrations of the "
-   },
-   {
-    "text": "cello",
-    "dim": "instrument",
-    "tag": "cello"
-   },
-   {
-    "text": " , "
-   },
-   {
-    "text": "flute",
-    "dim": "instrument",
-    "tag": "flute"
-   },
-   {
-    "text": " or "
-   },
-   {
-    "text": "recorder",
-    "dim": "instrument",
-    "tag": "recorder"
-   },
-   {
-    "text": " melody with a female voice talking about Spinal treatment . The music is "
-   },
-   {
-    "text": "soft",
-    "dim": "mood_theme",
-    "tag": "soft"
-   },
-   {
-    "text": ", "
-   },
-   {
-    "text": "soothing",
-    "dim": "mood_theme",
-    "tag": "soothing"
-   },
-   {
-    "text": ", "
-   },
-   {
-    "text": "meditative",
-    "dim": "mood_theme",
-    "tag": "meditative"
-   },
-   {
-    "text": ","
-   },
-   {
-    "text": "hypnotic",
-    "dim": "mood_theme",
-    "tag": "hypnotic"
-   },
-   {
-    "text": ", "
-   },
-   {
-    "text": "calming",
-    "dim": "mood_theme",
-    "tag": "calming"
-   },
-   {
-    "text": ", "
-   },
-   {
-    "text": "droning",
-    "dim": "mood_theme",
-    "tag": "droning"
-   },
-   {
-    "text": ", "
-   },
-   {
-    "text": "recurring",
-    "dim": "mood_theme",
-    "tag": "recurring"
-   },
-   {
-    "text": " and "
-   },
-   {
-    "text": "insistent",
-    "dim": "mood_theme",
-    "tag": "insistent"
-   },
-   {
-    "text": ". This clip is a documentary or "
-   },
-   {
-    "text": "tutorial on spinal treatment",
-    "dim": "context",
-    "tag": "tutorial on spinal treatment"
-   },
-   {
-    "text": " superimposed on the instrumental."
-   }
-  ],
-  "unlocated": [
-   {
-    "dim": "context",
-    "tag": "documentary on spinal treatment"
-   }
-  ],
-  "key_tag": "instrument:cello",
-  "key_spread": 0.9474,
-  "winner": "musicgen_large",
-  "loser": "meanaudio",
-  "tradeoff": true,
-  "clap_spread": 0.0349,
-  "aqa_spread": {
-   "qwen3omni": 0.5147,
-   "af": 0.2552,
-   "mf": 0.4291
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/musiccaps/08_ihCl2ImrOYE/musicgen_large.wav",
-    "clap_caption": 0.3093,
-    "muq_caption": 0.1624,
-    "clap_pertag_mean": 0.0812,
-    "muq_pertag_mean": 0.1058,
-    "mqa_mean": {
-     "qwen3omni": 0.955,
-     "af": 0.7008,
-     "mf": 0.5836
-    },
-    "aqascore": {
-     "qwen3omni": 0.7058,
-     "af": 0.4076,
-     "mf": 0.867
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/musiccaps/08_ihCl2ImrOYE/stable_audio_3.wav",
-    "clap_caption": 0.2941,
-    "muq_caption": 0.4412,
-    "clap_pertag_mean": 0.2718,
-    "muq_pertag_mean": 0.2107,
-    "mqa_mean": {
-     "qwen3omni": 0.759,
-     "af": 0.7675,
-     "mf": 0.8153
-    },
-    "aqascore": {
-     "qwen3omni": 0.8355,
-     "af": 0.5005,
-     "mf": 0.5927
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/musiccaps/08_ihCl2ImrOYE/meanaudio.wav",
-    "clap_caption": 0.329,
-    "muq_caption": 0.2377,
-    "clap_pertag_mean": 0.0942,
-    "muq_pertag_mean": 0.1868,
-    "mqa_mean": {
-     "qwen3omni": 0.7706,
-     "af": 0.6604,
-     "mf": 0.5755
-    },
-    "aqascore": {
-     "qwen3omni": 0.4688,
-     "af": 0.2453,
-     "mf": 0.5312
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/musiccaps/08_ihCl2ImrOYE/acestep_1_5.wav",
-    "clap_caption": 0.3284,
-    "muq_caption": 0.0793,
-    "clap_pertag_mean": 0.1549,
-    "muq_pertag_mean": 0.1564,
-    "mqa_mean": {
-     "qwen3omni": 0.7603,
-     "af": 0.6906,
-     "mf": 0.4371
-    },
-    "aqascore": {
-     "qwen3omni": 0.3208,
-     "af": 0.349,
-     "mf": 0.4379
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/musiccaps/08_ihCl2ImrOYE/GT.wav",
-    "clap_caption": 0.3306,
-    "muq_caption": 0.2083,
-    "clap_pertag_mean": 0.137,
-    "muq_pertag_mean": 0.2761,
-    "mqa_mean": {
-     "qwen3omni": 0.729,
-     "af": 0.6892,
-     "mf": 0.6968
-    },
-    "aqascore": {
-     "qwen3omni": 0.9995,
-     "af": 0.974,
-     "mf": 0.9841
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "context",
-    "tag": "documentary on spinal treatment",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9627,
-      "af": 0.6793,
-      "mf": 0.977
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.4688,
-      "af": 0.5931,
-      "mf": 0.9399
-     },
-     "meanaudio": {
-      "qwen3omni": 0.867,
-      "af": 0.5002,
-      "mf": 0.5
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.3776,
-      "af": 0.3489,
-      "mf": 0.1067
-     },
-     "GT": {
-      "qwen3omni": 0.9933,
-      "af": 0.8933,
-      "mf": 0.9149
-     }
-    }
-   },
-   {
-    "attribute": "context",
-    "tag": "tutorial on spinal treatment",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9325,
-      "af": 0.1826,
-      "mf": 0.9797
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.4073,
-      "af": 0.1482,
-      "mf": 0.9399
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9047,
-      "af": 0.0954,
-      "mf": 0.8176
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.2018,
-      "af": 0.1068,
-      "mf": 0.4378
-     },
-     "GT": {
-      "qwen3omni": 0.9954,
-      "af": 0.5928,
-      "mf": 0.9526
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "cello",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9948,
-      "af": 0.3211,
-      "mf": 0.1645
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.5927,
-      "af": 0.3214,
-      "mf": 0.0534
-     },
-     "meanaudio": {
-      "qwen3omni": 0.0474,
-      "af": 0.1482,
-      "mf": 0.0373
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.7982,
-      "af": 0.7061,
-      "mf": 0.4073
-     },
-     "GT": {
-      "qwen3omni": 0.5312,
-      "af": 0.0759,
-      "mf": 0.0203
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "flute",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.867,
-      "af": 0.1482,
-      "mf": 0.0293
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9941,
-      "af": 0.7776,
-      "mf": 0.7549
-     },
-     "meanaudio": {
-      "qwen3omni": 0.4073,
-      "af": 0.202,
-      "mf": 0.026
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.5312,
-      "af": 0.1649,
-      "mf": 0.0097
-     },
-     "GT": {
-      "qwen3omni": 0.0293,
-      "af": 0.0475,
-      "mf": 0.0017
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "recorder",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.8176,
-      "af": 0.2453,
-      "mf": 0.9466
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9149,
-      "af": 0.7552,
-      "mf": 0.8933
-     },
-     "meanaudio": {
-      "qwen3omni": 0.3487,
-      "af": 0.2229,
-      "mf": 0.2942
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.8933,
-      "af": 0.3212,
-      "mf": 0.2942
-     },
-     "GT": {
-      "qwen3omni": 0.0421,
-      "af": 0.0601,
-      "mf": 0.023
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "calming",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9669,
-      "af": 0.9841,
-      "mf": 0.0203
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.5,
-      "af": 0.9149,
-      "mf": 0.8355
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9903,
-      "af": 0.9841,
-      "mf": 0.5
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.5927,
-      "af": 0.9149,
-      "mf": 0.0851
-     },
-     "GT": {
-      "qwen3omni": 0.9941,
-      "af": 0.9669,
-      "mf": 0.9579
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "droning",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9954,
-      "af": 0.9466,
-      "mf": 0.974
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9325,
-      "af": 0.9047,
-      "mf": 0.8933
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9968,
-      "af": 0.9876,
-      "mf": 0.8933
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.977,
-      "af": 0.9149,
-      "mf": 0.867
-     },
-     "GT": {
-      "qwen3omni": 0.9975,
-      "af": 0.9859,
-      "mf": 0.9579
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "hypnotic",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9959,
-      "af": 0.9859,
-      "mf": 0.9841
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9859,
-      "af": 0.9627,
-      "mf": 0.982
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9985,
-      "af": 0.982,
-      "mf": 0.9579
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9985,
-      "af": 0.9797,
-      "mf": 0.9669
-     },
-     "GT": {
-      "qwen3omni": 0.9876,
-      "af": 0.9149,
-      "mf": 0.9627
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "insistent",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9399,
-      "af": 0.755,
-      "mf": 0.9797
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.7773,
-      "af": 0.8809,
-      "mf": 0.6792
-     },
-     "meanaudio": {
-      "qwen3omni": 0.5312,
-      "af": 0.7983,
-      "mf": 0.6225
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9903,
-      "af": 0.8356,
-      "mf": 0.7773
-     },
-     "GT": {
-      "qwen3omni": 0.0421,
-      "af": 0.6793,
-      "mf": 0.5312
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "meditative",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9954,
-      "af": 0.9859,
-      "mf": 0.5
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9526,
-      "af": 0.9325,
-      "mf": 0.9669
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9981,
-      "af": 0.9859,
-      "mf": 0.8519
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.7549,
-      "af": 0.8808,
-      "mf": 0.4688
-     },
-     "GT": {
-      "qwen3omni": 0.9959,
-      "af": 0.977,
-      "mf": 0.9797
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "recurring",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.977,
-      "af": 0.9466,
-      "mf": 0.9841
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.7549,
-      "af": 0.9399,
-      "mf": 0.982
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9399,
-      "af": 0.9627,
-      "mf": 0.9627
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9991,
-      "af": 0.9579,
-      "mf": 0.9325
-     },
-     "GT": {
-      "qwen3omni": 0.8808,
-      "af": 0.9399,
-      "mf": 0.9046
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "soft",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9933,
-      "af": 0.9399,
-      "mf": 0.0141
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.8808,
-      "af": 0.8934,
-      "mf": 0.7549
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9941,
-      "af": 0.7312,
-      "mf": 0.1824
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9707,
-      "af": 0.8934,
-      "mf": 0.1645
-     },
-     "GT": {
-      "qwen3omni": 0.9924,
-      "af": 0.852,
-      "mf": 0.8808
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "soothing",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.977,
-      "af": 0.9903,
-      "mf": 0.0331
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.7058,
-      "af": 0.9526,
-      "mf": 0.9241
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9941,
-      "af": 0.9841,
-      "mf": 0.8355
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.7982,
-      "af": 0.9526,
-      "mf": 0.1645
-     },
-     "GT": {
-      "qwen3omni": 0.9954,
-      "af": 0.974,
-      "mf": 0.9707
-     }
-    }
-   }
-  ]
- },
- {
-  "rank": 9,
-  "dataset": "musiccaps",
-  "id": "RXk0lQJ7ttc",
-  "caption_segments": [
-   {
-    "text": "The "
-   },
-   {
-    "text": "electronic dance music",
-    "dim": "genre",
-    "tag": "electronic dance music"
-   },
-   {
-    "text": " features a female voice singing a short melody after which the  song goes through a transition passage. After this a male voice can be heard singing a shorter melody. Throughout the music excerpt "
-   },
-   {
-    "text": "strings",
-    "dim": "instrument",
-    "tag": "strings"
-   },
-   {
-    "text": " can be heard in the background as well as an "
-   },
-   {
-    "text": "electric guitar",
-    "dim": "instrument",
-    "tag": "electric guitar"
-   },
-   {
-    "text": ". The "
-   },
-   {
-    "text": "drums",
-    "dim": "instrument",
-    "tag": "drums"
-   },
-   {
-    "text": " play a busy rhythm in the first half of the music passage. In the second half the "
-   },
-   {
-    "text": "synth bass",
-    "dim": "instrument",
-    "tag": "synth bass"
-   },
-   {
-    "text": " kicks in."
-   }
-  ],
-  "unlocated": [
-   {
-    "dim": "vocal",
-    "tag": "female vocal"
-   },
-   {
-    "dim": "vocal",
-    "tag": "male vocal"
-   }
-  ],
-  "key_tag": "vocal:female vocal",
-  "key_spread": 0.9884,
-  "winner": "stable_audio_3",
-  "loser": "acestep_1_5",
-  "tradeoff": true,
-  "clap_spread": 0.037,
-  "aqa_spread": {
-   "qwen3omni": 0.7288,
-   "af": 0.6982,
-   "mf": 0.5084
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/musiccaps/09_RXk0lQJ7ttc/musicgen_large.wav",
-    "clap_caption": 0.1553,
-    "muq_caption": 0.2012,
-    "clap_pertag_mean": 0.1569,
-    "muq_pertag_mean": 0.0581,
-    "mqa_mean": {
-     "qwen3omni": 0.5068,
-     "af": 0.5176,
-     "mf": 0.2437
-    },
-    "aqascore": {
-     "qwen3omni": 0.011,
-     "af": 0.8808,
-     "mf": 0.7311
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/musiccaps/09_RXk0lQJ7ttc/stable_audio_3.wav",
-    "clap_caption": 0.1808,
-    "muq_caption": 0.3288,
-    "clap_pertag_mean": 0.2676,
-    "muq_pertag_mean": 0.1994,
-    "mqa_mean": {
-     "qwen3omni": 0.7208,
-     "af": 0.5305,
-     "mf": 0.4863
-    },
-    "aqascore": {
-     "qwen3omni": 0.3208,
-     "af": 0.755,
-     "mf": 0.2227
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/musiccaps/09_RXk0lQJ7ttc/meanaudio.wav",
-    "clap_caption": 0.1923,
-    "muq_caption": 0.2984,
-    "clap_pertag_mean": 0.1788,
-    "muq_pertag_mean": 0.2925,
-    "mqa_mean": {
-     "qwen3omni": 0.7337,
-     "af": 0.63,
-     "mf": 0.5987
-    },
-    "aqascore": {
-     "qwen3omni": 0.731,
-     "af": 0.1826,
-     "mf": 0.6225
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/musiccaps/09_RXk0lQJ7ttc/acestep_1_5.wav",
-    "clap_caption": 0.1686,
-    "muq_caption": 0.1433,
-    "clap_pertag_mean": 0.1725,
-    "muq_pertag_mean": 0.1545,
-    "mqa_mean": {
-     "qwen3omni": 0.3586,
-     "af": 0.4857,
-     "mf": 0.2855
-    },
-    "aqascore": {
-     "qwen3omni": 0.0022,
-     "af": 0.7982,
-     "mf": 0.3487
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/musiccaps/09_RXk0lQJ7ttc/GT.wav",
-    "clap_caption": 0.3982,
-    "muq_caption": 0.2725,
-    "clap_pertag_mean": 0.1912,
-    "muq_pertag_mean": 0.3789,
-    "mqa_mean": {
-     "qwen3omni": 0.7221,
-     "af": 0.5598,
-     "mf": 0.5846
-    },
-    "aqascore": {
-     "qwen3omni": 0.2451,
-     "af": 0.9241,
-     "mf": 0.9975
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "genre",
-    "tag": "electronic dance music",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9579,
-      "af": 0.9047,
-      "mf": 0.7311
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.2018,
-      "af": 0.2691,
-      "mf": 0.0028
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9627,
-      "af": 0.5314,
-      "mf": 0.6514
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.867,
-      "af": 0.9526,
-      "mf": 0.5312
-     },
-     "GT": {
-      "qwen3omni": 0.9995,
-      "af": 0.974,
-      "mf": 0.9933
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "drums",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9876,
-      "af": 0.5928,
-      "mf": 0.4073
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.982,
-      "af": 0.438,
-      "mf": 0.7549
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9876,
-      "af": 0.9933,
-      "mf": 0.9983
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9241,
-      "af": 0.7311,
-      "mf": 0.4378
-     },
-     "GT": {
-      "qwen3omni": 0.9707,
-      "af": 0.755,
-      "mf": 0.9047
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "electric guitar",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.0759,
-      "af": 0.4075,
-      "mf": 0.0759
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.867,
-      "af": 0.4075,
-      "mf": 0.6225
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9149,
-      "af": 0.5624,
-      "mf": 0.0373
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0421,
-      "af": 0.3488,
-      "mf": 0.1192
-     },
-     "GT": {
-      "qwen3omni": 0.0421,
-      "af": 0.0759,
-      "mf": 0.0025
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "strings",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9046,
-      "af": 0.6225,
-      "mf": 0.0293
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9579,
-      "af": 0.7982,
-      "mf": 0.1067
-     },
-     "meanaudio": {
-      "qwen3omni": 0.7058,
-      "af": 0.4381,
-      "mf": 0.5927
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0086,
-      "af": 0.2229,
-      "mf": 0.026
-     },
-     "GT": {
-      "qwen3omni": 0.0851,
-      "af": 0.0759,
-      "mf": 0.0159
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "synth bass",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.5927,
-      "af": 0.8176,
-      "mf": 0.4378
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.7773,
-      "af": 0.7311,
-      "mf": 0.133
-     },
-     "meanaudio": {
-      "qwen3omni": 0.6514,
-      "af": 0.9325,
-      "mf": 0.9241
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.6514,
-      "af": 0.9399,
-      "mf": 0.867
-     },
-     "GT": {
-      "qwen3omni": 0.982,
-      "af": 0.9399,
-      "mf": 0.9149
-     }
-    }
-   },
-   {
-    "attribute": "vocal",
-    "tag": "female vocal",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.023,
-      "af": 0.1826,
-      "mf": 0.018
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.852,
-      "af": 0.974,
-      "mf": 0.9669
-     },
-     "meanaudio": {
-      "qwen3omni": 0.0203,
-      "af": 0.0374,
-      "mf": 0.0203
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0086,
-      "af": 0.1193,
-      "mf": 0.0124
-     },
-     "GT": {
-      "qwen3omni": 0.982,
-      "af": 0.9914,
-      "mf": 0.9399
-     }
-    }
-   },
-   {
-    "attribute": "vocal",
-    "tag": "male vocal",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.0059,
-      "af": 0.0954,
-      "mf": 0.0067
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.4073,
-      "af": 0.0954,
-      "mf": 0.8176
-     },
-     "meanaudio": {
-      "qwen3omni": 0.8933,
-      "af": 0.9149,
-      "mf": 0.9669
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0086,
-      "af": 0.0852,
-      "mf": 0.0052
-     },
-     "GT": {
-      "qwen3omni": 0.9933,
-      "af": 0.1068,
-      "mf": 0.3208
      }
     }
    }
@@ -4189,346 +2204,459 @@ window.SOTA_PROMPTS = [
   ]
  },
  {
-  "rank": 1,
+  "rank": 9,
   "dataset": "sdd",
-  "id": "56",
+  "id": "387",
   "caption_segments": [
    {
-    "text": "The track seems to be a carribean-latino type beat - somewhat ressembling bachata. The isntruments are "
+    "text": "The song has a very "
    },
    {
-    "text": "accordion",
-    "dim": "instrument",
-    "tag": "accordion"
+    "text": "happy",
+    "dim": "mood_theme",
+    "tag": "happy"
    },
    {
-    "text": ", "
+    "text": " and "
    },
    {
-    "text": "percussions",
-    "dim": "instrument",
-    "tag": "percussions"
+    "text": "relaxing",
+    "dim": "mood_theme",
+    "tag": "relaxing"
    },
    {
-    "text": " - including bongos and other indigenous "
+    "text": " vibe. It is an alternative "
    },
    {
-    "text": "percussions",
-    "dim": "instrument",
-    "tag": "percussions"
-   },
-   {
-    "text": ". A man is singing langorously in spanish, and is joined by a "
-   },
-   {
-    "text": "backing vocal ensemble",
-    "dim": "vocal",
-    "tag": "backing vocal ensemble"
-   },
-   {
-    "text": " a bit later in the song. A "
-   },
-   {
-    "text": "nylon guitar",
-    "dim": "instrument",
-    "tag": "nylon guitar"
-   },
-   {
-    "text": " is strumment syncopated rythms in the background."
-   }
-  ],
-  "unlocated": [
-   {
+    "text": "rock",
     "dim": "genre",
-    "tag": "latino music"
+    "tag": "rock"
    },
    {
-    "dim": "vocal",
-    "tag": "male vocal"
+    "text": " instrumental song, that has "
+   },
+   {
+    "text": "guitar",
+    "dim": "instrument",
+    "tag": "guitar"
+   },
+   {
+    "text": " "
+   },
+   {
+    "text": "drums",
+    "dim": "instrument",
+    "tag": "drums"
+   },
+   {
+    "text": " and "
+   },
+   {
+    "text": "bass",
+    "dim": "instrument",
+    "tag": "bass"
+   },
+   {
+    "text": " and "
+   },
+   {
+    "text": "pad synth",
+    "dim": "instrument",
+    "tag": "pad synth"
+   },
+   {
+    "text": ". The songs sounds "
+   },
+   {
+    "text": "emotional",
+    "dim": "mood_theme",
+    "tag": "emotional"
+   },
+   {
+    "text": " and "
+   },
+   {
+    "text": "motivating",
+    "dim": "mood_theme",
+    "tag": "motivating"
    }
   ],
-  "key_tag": "vocal:male vocal",
-  "key_spread": 0.9929,
-  "winner": "meanaudio",
+  "unlocated": [],
+  "key_tag": "genre:rock",
+  "key_spread": 0.9969,
+  "winner": "stable_audio_3",
   "loser": "acestep_1_5",
   "tradeoff": true,
-  "clap_spread": 0.0175,
+  "clap_spread": 0.0718,
   "aqa_spread": {
-   "qwen3omni": 0.9313,
-   "af": 0.2529,
-   "mf": 0.0375
+   "qwen3omni": 0.8049,
+   "af": 0.2726,
+   "mf": 0.6254
   },
   "models": {
    "musicgen_large": {
-    "demo_audio": "audio/sdd/01_56/musicgen_large.wav",
-    "clap_caption": 0.3297,
-    "muq_caption": 0.4865,
-    "clap_pertag_mean": 0.1577,
-    "muq_pertag_mean": 0.1802,
+    "demo_audio": "audio/sdd/09_387/musicgen_large.wav",
+    "clap_caption": 0.2398,
+    "muq_caption": 0.5615,
+    "clap_pertag_mean": 0.1663,
+    "muq_pertag_mean": 0.2483,
     "mqa_mean": {
-     "qwen3omni": 0.5892,
-     "af": 0.5349,
-     "mf": 0.5856
+     "qwen3omni": 0.6598,
+     "af": 0.7887,
+     "mf": 0.5222
     },
     "aqascore": {
-     "qwen3omni": 0.0534,
-     "af": 0.977,
-     "mf": 0.9954
+     "qwen3omni": 0.5927,
+     "af": 0.9149,
+     "mf": 0.0293
     }
    },
    "stable_audio_3": {
-    "demo_audio": "audio/sdd/01_56/stable_audio_3.wav",
-    "clap_caption": 0.3161,
-    "muq_caption": 0.3167,
-    "clap_pertag_mean": 0.1875,
-    "muq_pertag_mean": 0.1015,
+    "demo_audio": "audio/sdd/09_387/stable_audio_3.wav",
+    "clap_caption": 0.3115,
+    "muq_caption": 0.4727,
+    "clap_pertag_mean": 0.1804,
+    "muq_pertag_mean": 0.2278,
     "mqa_mean": {
-     "qwen3omni": 0.5319,
-     "af": 0.5532,
-     "mf": 0.4942
+     "qwen3omni": 0.7167,
+     "af": 0.8038,
+     "mf": 0.5976
     },
     "aqascore": {
-     "qwen3omni": 0.023,
-     "af": 0.9841,
-     "mf": 0.9669
+     "qwen3omni": 0.9241,
+     "af": 0.9241,
+     "mf": 0.026
     }
    },
    "meanaudio": {
-    "demo_audio": "audio/sdd/01_56/meanaudio.wav",
-    "clap_caption": 0.3122,
-    "muq_caption": 0.4292,
-    "clap_pertag_mean": 0.1301,
-    "muq_pertag_mean": 0.3011,
+    "demo_audio": "audio/sdd/09_387/meanaudio.wav",
+    "clap_caption": 0.2497,
+    "muq_caption": 0.1451,
+    "clap_pertag_mean": 0.1475,
+    "muq_pertag_mean": 0.1624,
     "mqa_mean": {
-     "qwen3omni": 0.6944,
-     "af": 0.6354,
-     "mf": 0.7001
+     "qwen3omni": 0.686,
+     "af": 0.4439,
+     "mf": 0.5426
     },
     "aqascore": {
-     "qwen3omni": 0.9399,
-     "af": 0.9579,
-     "mf": 0.9933
+     "qwen3omni": 0.1192,
+     "af": 0.6515,
+     "mf": 0.0293
     }
    },
    "acestep_1_5": {
-    "demo_audio": "audio/sdd/01_56/acestep_1_5.wav",
-    "clap_caption": 0.3265,
-    "muq_caption": 0.1195,
-    "clap_pertag_mean": 0.2087,
-    "muq_pertag_mean": 0.0941,
+    "demo_audio": "audio/sdd/09_387/acestep_1_5.wav",
+    "clap_caption": 0.2739,
+    "muq_caption": 0.1731,
+    "clap_pertag_mean": 0.2871,
+    "muq_pertag_mean": 0.1643,
     "mqa_mean": {
-     "qwen3omni": 0.4494,
-     "af": 0.3473,
-     "mf": 0.4798
+     "qwen3omni": 0.7346,
+     "af": 0.6108,
+     "mf": 0.5812
     },
     "aqascore": {
-     "qwen3omni": 0.0086,
-     "af": 0.7312,
-     "mf": 0.9579
+     "qwen3omni": 0.1824,
+     "af": 0.8355,
+     "mf": 0.6514
     }
    },
    "GT": {
-    "demo_audio": "audio/sdd/01_56/GT.mp3",
-    "clap_caption": 0.4093,
-    "muq_caption": 0.3903,
-    "clap_pertag_mean": 0.2402,
-    "muq_pertag_mean": 0.2374,
+    "demo_audio": "audio/sdd/09_387/GT.mp3",
+    "clap_caption": 0.4396,
+    "muq_caption": 0.5189,
+    "clap_pertag_mean": 0.3336,
+    "muq_pertag_mean": 0.2662,
     "mqa_mean": {
-     "qwen3omni": 0.7881,
-     "af": 0.7574,
-     "mf": 0.7791
+     "qwen3omni": 0.7118,
+     "af": 0.793,
+     "mf": 0.5971
     },
     "aqascore": {
-     "qwen3omni": 0.9627,
-     "af": 0.9797,
-     "mf": 0.9941
+     "qwen3omni": 0.8519,
+     "af": 0.8672,
+     "mf": 0.3209
     }
    }
   },
   "per_tag": [
    {
     "attribute": "genre",
-    "tag": "latino music",
+    "tag": "rock",
     "scores": {
      "musicgen_large": {
-      "qwen3omni": 0.977,
-      "af": 0.9526,
-      "mf": 0.9149
+      "qwen3omni": 0.9797,
+      "af": 0.9242,
+      "mf": 0.9914
      },
      "stable_audio_3": {
-      "qwen3omni": 0.9991,
-      "af": 0.9903,
-      "mf": 0.9924
+      "qwen3omni": 0.9988,
+      "af": 0.9242,
+      "mf": 0.8933
      },
      "meanaudio": {
-      "qwen3omni": 0.9241,
-      "af": 0.9627,
-      "mf": 0.9047
+      "qwen3omni": 0.011,
+      "af": 0.0852,
+      "mf": 0.133
      },
      "acestep_1_5": {
-      "qwen3omni": 0.9859,
-      "af": 0.2229,
-      "mf": 0.9579
+      "qwen3omni": 0.0019,
+      "af": 0.1482,
+      "mf": 0.0086
      },
      "GT": {
-      "qwen3omni": 0.9985,
-      "af": 0.9941,
-      "mf": 0.9959
+      "qwen3omni": 0.9972,
+      "af": 0.915,
+      "mf": 0.9046
      }
     }
    },
    {
     "attribute": "instrument",
-    "tag": "accordion",
+    "tag": "bass",
     "scores": {
      "musicgen_large": {
-      "qwen3omni": 0.9466,
-      "af": 0.2691,
-      "mf": 0.7549
+      "qwen3omni": 0.6792,
+      "af": 0.7983,
+      "mf": 0.5927
      },
      "stable_audio_3": {
-      "qwen3omni": 0.2018,
-      "af": 0.1194,
-      "mf": 0.0954
+      "qwen3omni": 0.8355,
+      "af": 0.8933,
+      "mf": 0.7058
      },
      "meanaudio": {
-      "qwen3omni": 0.9997,
-      "af": 0.974,
-      "mf": 0.9972
+      "qwen3omni": 0.6792,
+      "af": 0.5625,
+      "mf": 0.9981
      },
      "acestep_1_5": {
-      "qwen3omni": 0.0676,
-      "af": 0.1193,
-      "mf": 0.0373
+      "qwen3omni": 0.7773,
+      "af": 0.6516,
+      "mf": 0.4073
+     },
+     "GT": {
+      "qwen3omni": 0.9399,
+      "af": 0.9819,
+      "mf": 0.5622
+     }
+    }
+   },
+   {
+    "attribute": "instrument",
+    "tag": "drums",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.9797,
+      "af": 0.5002,
+      "mf": 0.9978
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.999,
+      "af": 0.8671,
+      "mf": 0.8808
+     },
+     "meanaudio": {
+      "qwen3omni": 0.3487,
+      "af": 0.0676,
+      "mf": 0.011
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.852,
+      "af": 0.2945,
+      "mf": 0.2451
+     },
+     "GT": {
+      "qwen3omni": 0.9972,
+      "af": 0.7984,
+      "mf": 0.2018
+     }
+    }
+   },
+   {
+    "attribute": "instrument",
+    "tag": "guitar",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.9994,
+      "af": 0.9627,
+      "mf": 0.9985
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.9998,
+      "af": 0.9325,
+      "mf": 0.9579
+     },
+     "meanaudio": {
+      "qwen3omni": 0.9991,
+      "af": 0.9526,
+      "mf": 0.9988
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.4688,
+      "af": 0.5315,
+      "mf": 0.3487
      },
      "GT": {
       "qwen3omni": 0.9999,
-      "af": 0.9867,
-      "mf": 0.9325
+      "af": 0.9937,
+      "mf": 0.9978
      }
     }
    },
    {
     "attribute": "instrument",
-    "tag": "nylon guitar",
+    "tag": "pad synth",
     "scores": {
      "musicgen_large": {
-      "qwen3omni": 0.5927,
-      "af": 0.469,
+      "qwen3omni": 0.3208,
+      "af": 0.7773,
+      "mf": 0.0086
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.2942,
+      "af": 0.7059,
+      "mf": 0.0474
+     },
+     "meanaudio": {
+      "qwen3omni": 0.6792,
+      "af": 0.1482,
+      "mf": 0.8933
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.9707,
+      "af": 0.8176,
+      "mf": 0.9876
+     },
+     "GT": {
+      "qwen3omni": 0.0601,
+      "af": 0.9239,
+      "mf": 0.3208
+     }
+    }
+   },
+   {
+    "attribute": "mood_theme",
+    "tag": "emotional",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.9797,
+      "af": 0.9707,
+      "mf": 0.8808
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.989,
+      "af": 0.9466,
       "mf": 0.8176
      },
-     "stable_audio_3": {
-      "qwen3omni": 0.9924,
-      "af": 0.7983,
-      "mf": 0.867
-     },
      "meanaudio": {
-      "qwen3omni": 0.0474,
-      "af": 0.5314,
-      "mf": 0.1192
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.7058,
-      "af": 0.6515,
+      "qwen3omni": 0.9707,
+      "af": 0.9149,
       "mf": 0.9149
      },
-     "GT": {
-      "qwen3omni": 0.4688,
-      "af": 0.224,
-      "mf": 0.0759
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "percussions",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9985,
-      "af": 0.9627,
-      "mf": 0.9992
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9954,
-      "af": 0.9669,
-      "mf": 0.9924
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9324,
-      "af": 0.2691,
-      "mf": 0.982
-     },
      "acestep_1_5": {
-      "qwen3omni": 0.9324,
-      "af": 0.9047,
-      "mf": 0.9627
+      "qwen3omni": 0.9526,
+      "af": 0.9466,
+      "mf": 0.9579
      },
      "GT": {
-      "qwen3omni": 0.9933,
-      "af": 0.9933,
-      "mf": 0.9876
+      "qwen3omni": 0.9968,
+      "af": 0.9903,
+      "mf": 0.982
      }
     }
    },
    {
-    "attribute": "vocal",
-    "tag": "backing vocal ensemble",
+    "attribute": "mood_theme",
+    "tag": "happy",
     "scores": {
      "musicgen_large": {
       "qwen3omni": 0.0159,
-      "af": 0.4076,
-      "mf": 0.0159
+      "af": 0.5314,
+      "mf": 0.0474
      },
      "stable_audio_3": {
-      "qwen3omni": 0.0013,
-      "af": 0.349,
-      "mf": 0.0141
+      "qwen3omni": 0.2451,
+      "af": 0.3778,
+      "mf": 0.1067
      },
      "meanaudio": {
-      "qwen3omni": 0.2689,
-      "af": 0.0852,
-      "mf": 0.2018
+      "qwen3omni": 0.9466,
+      "af": 0.2944,
+      "mf": 0.0954
      },
      "acestep_1_5": {
-      "qwen3omni": 0.0036,
-      "af": 0.1482,
-      "mf": 0.0036
+      "qwen3omni": 0.9466,
+      "af": 0.7059,
+      "mf": 0.8355
      },
      "GT": {
-      "qwen3omni": 0.2689,
-      "af": 0.3501,
-      "mf": 0.7058
+      "qwen3omni": 0.269,
+      "af": 0.2024,
+      "mf": 0.0421
      }
     }
    },
    {
-    "attribute": "vocal",
-    "tag": "male vocal",
+    "attribute": "mood_theme",
+    "tag": "motivating",
     "scores": {
      "musicgen_large": {
-      "qwen3omni": 0.0046,
-      "af": 0.1482,
-      "mf": 0.011
+      "qwen3omni": 0.8355,
+      "af": 0.7982,
+      "mf": 0.1645
      },
      "stable_audio_3": {
-      "qwen3omni": 0.0015,
-      "af": 0.0954,
-      "mf": 0.0041
+      "qwen3omni": 0.9241,
+      "af": 0.7059,
+      "mf": 0.9399
      },
      "meanaudio": {
-      "qwen3omni": 0.9941,
-      "af": 0.9903,
-      "mf": 0.9959
+      "qwen3omni": 0.5622,
+      "af": 0.4075,
+      "mf": 0.7058
      },
      "acestep_1_5": {
-      "qwen3omni": 0.0012,
-      "af": 0.0374,
-      "mf": 0.0025
+      "qwen3omni": 0.6514,
+      "af": 0.469,
+      "mf": 0.5
      },
      "GT": {
-      "qwen3omni": 0.9994,
-      "af": 0.9964,
-      "mf": 0.977
+      "qwen3omni": 0.982,
+      "af": 0.6796,
+      "mf": 0.8933
+     }
+    }
+   },
+   {
+    "attribute": "mood_theme",
+    "tag": "relaxing",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.1481,
+      "af": 0.8355,
+      "mf": 0.018
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.1645,
+      "af": 0.8808,
+      "mf": 0.0293
+     },
+     "meanaudio": {
+      "qwen3omni": 0.977,
+      "af": 0.5623,
+      "mf": 0.133
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.9903,
+      "af": 0.9325,
+      "mf": 0.9399
+     },
+     "GT": {
+      "qwen3omni": 0.1645,
+      "af": 0.6523,
+      "mf": 0.4688
      }
     }
    }
@@ -4556,7 +2684,15 @@ window.SOTA_PROMPTS = [
     "tag": "emotionally charged"
    },
    {
-    "text": " instrumental track featuring a blend of calm, acoustic and "
+    "text": " instrumental track featuring a blend of calm, "
+   },
+   {
+    "text": "acoustic",
+    "dim": "instrument",
+    "tag": "acoustic guitar"
+   },
+   {
+    "text": " and "
    },
    {
     "text": "electric guitars",
@@ -4615,12 +2751,7 @@ window.SOTA_PROMPTS = [
     "text": "."
    }
   ],
-  "unlocated": [
-   {
-    "dim": "instrument",
-    "tag": "acoustic guitar"
-   }
-  ],
+  "unlocated": [],
   "key_tag": "instrument:acoustic guitar",
   "key_spread": 0.9509,
   "winner": "meanaudio",
@@ -5033,192 +3164,6 @@ window.SOTA_PROMPTS = [
   ]
  },
  {
-  "rank": 3,
-  "dataset": "sdd",
-  "id": "528",
-  "caption_segments": [
-   {
-    "text": "upbeat",
-    "dim": "mood_theme",
-    "tag": "upbeat"
-   },
-   {
-    "text": " "
-   },
-   {
-    "text": "electronic",
-    "dim": "genre",
-    "tag": "electronic"
-   },
-   {
-    "text": " music with occasional melody woah which keeps looping over and over"
-   }
-  ],
-  "unlocated": [],
-  "key_tag": "mood_theme:upbeat",
-  "key_spread": 0.9451,
-  "winner": "musicgen_large",
-  "loser": "stable_audio_3",
-  "tradeoff": true,
-  "clap_spread": 0.0454,
-  "aqa_spread": {
-   "qwen3omni": 0.1064,
-   "af": 0.4082,
-   "mf": 0.3997
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/sdd/03_528/musicgen_large.wav",
-    "clap_caption": 0.2395,
-    "muq_caption": 0.291,
-    "clap_pertag_mean": 0.14,
-    "muq_pertag_mean": 0.1798,
-    "mqa_mean": {
-     "qwen3omni": 0.9991,
-     "af": 0.9821,
-     "mf": 0.9844
-    },
-    "aqascore": {
-     "qwen3omni": 0.9046,
-     "af": 0.9399,
-     "mf": 0.9526
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/sdd/03_528/stable_audio_3.wav",
-    "clap_caption": 0.1941,
-    "muq_caption": 0.1598,
-    "clap_pertag_mean": 0.3991,
-    "muq_pertag_mean": 0.1408,
-    "mqa_mean": {
-     "qwen3omni": 0.5224,
-     "af": 0.6285,
-     "mf": 0.512
-    },
-    "aqascore": {
-     "qwen3omni": 0.7982,
-     "af": 0.5317,
-     "mf": 0.6225
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/sdd/03_528/meanaudio.wav",
-    "clap_caption": 0.2052,
-    "muq_caption": 0.191,
-    "clap_pertag_mean": 0.009,
-    "muq_pertag_mean": 0.2264,
-    "mqa_mean": {
-     "qwen3omni": 0.9788,
-     "af": 0.9859,
-     "mf": 0.9844
-    },
-    "aqascore": {
-     "qwen3omni": 0.9046,
-     "af": 0.7059,
-     "mf": 0.9924
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/sdd/03_528/acestep_1_5.wav",
-    "clap_caption": 0.1965,
-    "muq_caption": 0.1677,
-    "clap_pertag_mean": 0.3207,
-    "muq_pertag_mean": 0.1901,
-    "mqa_mean": {
-     "qwen3omni": 0.9154,
-     "af": 0.7878,
-     "mf": 0.5544
-    },
-    "aqascore": {
-     "qwen3omni": 0.867,
-     "af": 0.6794,
-     "mf": 0.5927
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/sdd/03_528/GT.mp3",
-    "clap_caption": 0.2709,
-    "muq_caption": 0.2526,
-    "clap_pertag_mean": 0.2936,
-    "muq_pertag_mean": 0.2441,
-    "mqa_mean": {
-     "qwen3omni": 0.9881,
-     "af": 0.9548,
-     "mf": 0.6583
-    },
-    "aqascore": {
-     "qwen3omni": 0.9241,
-     "af": 0.8811,
-     "mf": 0.8933
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "genre",
-    "tag": "electronic",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9998,
-      "af": 0.9903,
-      "mf": 0.9948
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9914,
-      "af": 0.9627,
-      "mf": 0.9047
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9998,
-      "af": 0.9876,
-      "mf": 0.9981
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9954,
-      "af": 0.9242,
-      "mf": 0.7311
-     },
-     "GT": {
-      "qwen3omni": 0.9993,
-      "af": 0.9948,
-      "mf": 0.9959
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "upbeat",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9985,
-      "af": 0.974,
-      "mf": 0.974
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.0534,
-      "af": 0.2944,
-      "mf": 0.1192
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9579,
-      "af": 0.9841,
-      "mf": 0.9707
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.8355,
-      "af": 0.6515,
-      "mf": 0.3776
-     },
-     "GT": {
-      "qwen3omni": 0.977,
-      "af": 0.9149,
-      "mf": 0.3208
-     }
-    }
-   }
-  ]
- },
- {
   "rank": 4,
   "dataset": "sdd",
   "id": "291",
@@ -5525,880 +3470,6 @@ window.SOTA_PROMPTS = [
   ]
  },
  {
-  "rank": 5,
-  "dataset": "sdd",
-  "id": "592",
-  "caption_segments": [
-   {
-    "text": "Genre seems to be Texas "
-   },
-   {
-    "text": "country",
-    "dim": "genre",
-    "tag": "country"
-   },
-   {
-    "text": " music and I feel "
-   },
-   {
-    "text": "hopeful",
-    "dim": "mood_theme",
-    "tag": "hopeful"
-   },
-   {
-    "text": " and felt like I'm in a "
-   },
-   {
-    "text": "farm",
-    "dim": "context",
-    "tag": "farm"
-   },
-   {
-    "text": "\nwith waiting for the sunset with "
-   },
-   {
-    "text": "animals walking around",
-    "dim": "context",
-    "tag": "animals walking around"
-   }
-  ],
-  "unlocated": [
-   {
-    "dim": "context",
-    "tag": "waiting for sunset"
-   },
-   {
-    "dim": "mood_theme",
-    "tag": "calm"
-   }
-  ],
-  "key_tag": "mood_theme:calm",
-  "key_spread": 0.9704,
-  "winner": "acestep_1_5",
-  "loser": "meanaudio",
-  "tradeoff": true,
-  "clap_spread": 0.0616,
-  "aqa_spread": {
-   "qwen3omni": 0.2181,
-   "af": 0.6218,
-   "mf": 0.8573
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/sdd/05_592/musicgen_large.wav",
-    "clap_caption": 0.1164,
-    "muq_caption": 0.2957,
-    "clap_pertag_mean": 0.1991,
-    "muq_pertag_mean": 0.2033,
-    "mqa_mean": {
-     "qwen3omni": 0.6766,
-     "af": 0.5231,
-     "mf": 0.5838
-    },
-    "aqascore": {
-     "qwen3omni": 0.977,
-     "af": 0.9149,
-     "mf": 0.8176
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/sdd/05_592/stable_audio_3.wav",
-    "clap_caption": 0.1371,
-    "muq_caption": 0.2576,
-    "clap_pertag_mean": 0.2693,
-    "muq_pertag_mean": 0.2373,
-    "mqa_mean": {
-     "qwen3omni": 0.5491,
-     "af": 0.6592,
-     "mf": 0.6857
-    },
-    "aqascore": {
-     "qwen3omni": 0.9707,
-     "af": 0.9707,
-     "mf": 0.867
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/sdd/05_592/meanaudio.wav",
-    "clap_caption": 0.1198,
-    "muq_caption": 0.1521,
-    "clap_pertag_mean": 0.2422,
-    "muq_pertag_mean": 0.1668,
-    "mqa_mean": {
-     "qwen3omni": 0.78,
-     "af": 0.3441,
-     "mf": 0.5322
-    },
-    "aqascore": {
-     "qwen3omni": 0.9954,
-     "af": 0.3489,
-     "mf": 0.0097
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/sdd/05_592/acestep_1_5.wav",
-    "clap_caption": 0.0755,
-    "muq_caption": -0.0678,
-    "clap_pertag_mean": 0.2499,
-    "muq_pertag_mean": -0.0474,
-    "mqa_mean": {
-     "qwen3omni": 0.8141,
-     "af": 0.5929,
-     "mf": 0.665
-    },
-    "aqascore": {
-     "qwen3omni": 0.7773,
-     "af": 0.4077,
-     "mf": 0.5
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/sdd/05_592/GT.mp3",
-    "clap_caption": 0.2512,
-    "muq_caption": 0.1733,
-    "clap_pertag_mean": 0.2344,
-    "muq_pertag_mean": 0.2505,
-    "mqa_mean": {
-     "qwen3omni": 0.3499,
-     "af": 0.6036,
-     "mf": 0.4205
-    },
-    "aqascore": {
-     "qwen3omni": 0.0534,
-     "af": 0.5931,
-     "mf": 0.1192
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "context",
-    "tag": "animals walking around",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.7773,
-      "af": 0.438,
-      "mf": 0.5312
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.3208,
-      "af": 0.4076,
-      "mf": 0.7549
-     },
-     "meanaudio": {
-      "qwen3omni": 0.8933,
-      "af": 0.3778,
-      "mf": 0.9669
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9241,
-      "af": 0.438,
-      "mf": 0.7982
-     },
-     "GT": {
-      "qwen3omni": 0.0759,
-      "af": 0.378,
-      "mf": 0.2451
-     }
-    }
-   },
-   {
-    "attribute": "context",
-    "tag": "farm",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.852,
-      "af": 0.438,
-      "mf": 0.9241
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9046,
-      "af": 0.8356,
-      "mf": 0.982
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9841,
-      "af": 0.7983,
-      "mf": 0.5622
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9669,
-      "af": 0.5624,
-      "mf": 0.8176
-     },
-     "GT": {
-      "qwen3omni": 0.8176,
-      "af": 0.7775,
-      "mf": 0.8808
-     }
-    }
-   },
-   {
-    "attribute": "context",
-    "tag": "waiting for sunset",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9941,
-      "af": 0.9242,
-      "mf": 0.8519
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.977,
-      "af": 0.7983,
-      "mf": 0.7982
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9941,
-      "af": 0.4075,
-      "mf": 0.4688
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.982,
-      "af": 0.8671,
-      "mf": 0.8933
-     },
-     "GT": {
-      "qwen3omni": 0.9526,
-      "af": 0.9325,
-      "mf": 0.5622
-     }
-    }
-   },
-   {
-    "attribute": "genre",
-    "tag": "country",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.6792,
-      "af": 0.2453,
-      "mf": 0.8176
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.8808,
-      "af": 0.9399,
-      "mf": 0.9841
-     },
-     "meanaudio": {
-      "qwen3omni": 0.7982,
-      "af": 0.0534,
-      "mf": 0.0601
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0331,
-      "af": 0.0676,
-      "mf": 0.1824
-     },
-     "GT": {
-      "qwen3omni": 0.2018,
-      "af": 0.223,
-      "mf": 0.5
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "calm",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.1645,
-      "af": 0.5001,
-      "mf": 0.133
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.0293,
-      "af": 0.2944,
-      "mf": 0.0331
-     },
-     "meanaudio": {
-      "qwen3omni": 0.026,
-      "af": 0.1067,
-      "mf": 0.1645
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9964,
-      "af": 0.8671,
-      "mf": 0.5927
-     },
-     "GT": {
-      "qwen3omni": 0.0373,
-      "af": 0.3778,
-      "mf": 0.2018
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "hopeful",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.5927,
-      "af": 0.5928,
-      "mf": 0.2451
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.1824,
-      "af": 0.6793,
-      "mf": 0.5622
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9841,
-      "af": 0.321,
-      "mf": 0.9707
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.982,
-      "af": 0.755,
-      "mf": 0.7058
-     },
-     "GT": {
-      "qwen3omni": 0.0141,
-      "af": 0.9325,
-      "mf": 0.133
-     }
-    }
-   }
-  ]
- },
- {
-  "rank": 6,
-  "dataset": "sdd",
-  "id": "1106",
-  "caption_segments": [
-   {
-    "text": "Very "
-   },
-   {
-    "text": "country",
-    "dim": "genre",
-    "tag": "country"
-   },
-   {
-    "text": "-blusy fantastic "
-   },
-   {
-    "text": "guitar",
-    "dim": "instrument",
-    "tag": "guitar"
-   },
-   {
-    "text": " riffs, "
-   },
-   {
-    "text": "smooth",
-    "dim": "mood_theme",
-    "tag": "smooth"
-   },
-   {
-    "text": " & "
-   },
-   {
-    "text": "calm",
-    "dim": "mood_theme",
-    "tag": "calm"
-   },
-   {
-    "text": ". Perfect mix of multiple "
-   },
-   {
-    "text": "guitars",
-    "dim": "instrument",
-    "tag": "guitar"
-   }
-  ],
-  "unlocated": [],
-  "key_tag": "genre:country",
-  "key_spread": 0.969,
-  "winner": "stable_audio_3",
-  "loser": "acestep_1_5",
-  "tradeoff": true,
-  "clap_spread": 0.0649,
-  "aqa_spread": {
-   "qwen3omni": 0.1167,
-   "af": 0.8098,
-   "mf": 0.8578
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/sdd/06_1106/musicgen_large.wav",
-    "clap_caption": 0.2763,
-    "muq_caption": 0.2426,
-    "clap_pertag_mean": 0.1772,
-    "muq_pertag_mean": 0.3229,
-    "mqa_mean": {
-     "qwen3omni": 0.9841,
-     "af": 0.7728,
-     "mf": 0.7404
-    },
-    "aqascore": {
-     "qwen3omni": 0.9859,
-     "af": 0.9324,
-     "mf": 0.0421
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/sdd/06_1106/stable_audio_3.wav",
-    "clap_caption": 0.3412,
-    "muq_caption": 0.4679,
-    "clap_pertag_mean": 0.2781,
-    "muq_pertag_mean": 0.2489,
-    "mqa_mean": {
-     "qwen3omni": 0.842,
-     "af": 0.6716,
-     "mf": 0.5808
-    },
-    "aqascore": {
-     "qwen3omni": 0.9975,
-     "af": 0.9579,
-     "mf": 0.8808
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/sdd/06_1106/meanaudio.wav",
-    "clap_caption": 0.3163,
-    "muq_caption": 0.2556,
-    "clap_pertag_mean": 0.16,
-    "muq_pertag_mean": 0.1426,
-    "mqa_mean": {
-     "qwen3omni": 0.9447,
-     "af": 0.4915,
-     "mf": 0.3051
-    },
-    "aqascore": {
-     "qwen3omni": 0.9579,
-     "af": 0.1481,
-     "mf": 0.023
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/sdd/06_1106/acestep_1_5.wav",
-    "clap_caption": 0.3232,
-    "muq_caption": 0.1013,
-    "clap_pertag_mean": 0.2075,
-    "muq_pertag_mean": 0.1123,
-    "mqa_mean": {
-     "qwen3omni": 0.5467,
-     "af": 0.6119,
-     "mf": 0.4758
-    },
-    "aqascore": {
-     "qwen3omni": 0.8808,
-     "af": 0.7059,
-     "mf": 0.3208
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/sdd/06_1106/GT.mp3",
-    "clap_caption": 0.3685,
-    "muq_caption": 0.2606,
-    "clap_pertag_mean": 0.247,
-    "muq_pertag_mean": 0.2563,
-    "mqa_mean": {
-     "qwen3omni": 0.9385,
-     "af": 0.8778,
-     "mf": 0.6338
-    },
-    "aqascore": {
-     "qwen3omni": 0.9914,
-     "af": 0.9941,
-     "mf": 0.9859
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "genre",
-    "tag": "country",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9399,
-      "af": 0.202,
-      "mf": 0.1481
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9983,
-      "af": 0.4381,
-      "mf": 0.9707
-     },
-     "meanaudio": {
-      "qwen3omni": 0.7982,
-      "af": 0.3489,
-      "mf": 0.1192
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0293,
-      "af": 0.0759,
-      "mf": 0.0331
-     },
-     "GT": {
-      "qwen3omni": 0.9841,
-      "af": 0.94,
-      "mf": 0.7058
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "guitar",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9994,
-      "af": 0.9841,
-      "mf": 0.8808
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9998,
-      "af": 0.9242,
-      "mf": 0.9983
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9996,
-      "af": 0.9941,
-      "mf": 0.9964
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9149,
-      "af": 0.9047,
-      "mf": 0.8176
-     },
-     "GT": {
-      "qwen3omni": 0.9997,
-      "af": 0.9948,
-      "mf": 0.9981
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "calm",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9997,
-      "af": 0.9526,
-      "mf": 0.9466
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.4073,
-      "af": 0.5929,
-      "mf": 0.0601
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9933,
-      "af": 0.2453,
-      "mf": 0.0373
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.2451,
-      "af": 0.5623,
-      "mf": 0.1481
-     },
-     "GT": {
-      "qwen3omni": 0.8176,
-      "af": 0.7777,
-      "mf": 0.2689
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "smooth",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9975,
-      "af": 0.9526,
-      "mf": 0.9859
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9627,
-      "af": 0.7312,
-      "mf": 0.2942
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9876,
-      "af": 0.3778,
-      "mf": 0.0676
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9975,
-      "af": 0.9047,
-      "mf": 0.9046
-     },
-     "GT": {
-      "qwen3omni": 0.9526,
-      "af": 0.7986,
-      "mf": 0.5622
-     }
-    }
-   }
-  ]
- },
- {
-  "rank": 7,
-  "dataset": "sdd",
-  "id": "138",
-  "caption_segments": [
-   {
-    "text": "Possibly a "
-   },
-   {
-    "text": "movie soundtrack",
-    "dim": "context",
-    "tag": "movie soundtrack"
-   },
-   {
-    "text": ", this instrumental piece has a "
-   },
-   {
-    "text": "dramatic",
-    "dim": "mood_theme",
-    "tag": "dramatic"
-   },
-   {
-    "text": " tone, creates a slight "
-   },
-   {
-    "text": "suspense",
-    "dim": "mood_theme",
-    "tag": "suspense"
-   },
-   {
-    "text": " and a "
-   },
-   {
-    "text": "playful",
-    "dim": "mood_theme",
-    "tag": "playful"
-   },
-   {
-    "text": " continuing"
-   }
-  ],
-  "unlocated": [],
-  "key_tag": "mood_theme:playful",
-  "key_spread": 0.9981,
-  "winner": "acestep_1_5",
-  "loser": "meanaudio",
-  "tradeoff": true,
-  "clap_spread": 0.0679,
-  "aqa_spread": {
-   "qwen3omni": 0.0823,
-   "af": 0.4204,
-   "mf": 0.0375
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/sdd/07_138/musicgen_large.wav",
-    "clap_caption": 0.2183,
-    "muq_caption": 0.0937,
-    "clap_pertag_mean": 0.1591,
-    "muq_pertag_mean": -0.0,
-    "mqa_mean": {
-     "qwen3omni": 0.9467,
-     "af": 0.8324,
-     "mf": 0.7539
-    },
-    "aqascore": {
-     "qwen3omni": 0.9972,
-     "af": 0.7982,
-     "mf": 0.9841
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/sdd/07_138/stable_audio_3.wav",
-    "clap_caption": 0.2017,
-    "muq_caption": 0.2189,
-    "clap_pertag_mean": 0.2326,
-    "muq_pertag_mean": 0.0761,
-    "mqa_mean": {
-     "qwen3omni": 0.8047,
-     "af": 0.5688,
-     "mf": 0.6547
-    },
-    "aqascore": {
-     "qwen3omni": 0.9914,
-     "af": 0.3778,
-     "mf": 0.9466
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/sdd/07_138/meanaudio.wav",
-    "clap_caption": 0.1994,
-    "muq_caption": 0.1159,
-    "clap_pertag_mean": 0.089,
-    "muq_pertag_mean": 0.1259,
-    "mqa_mean": {
-     "qwen3omni": 0.7323,
-     "af": 0.6956,
-     "mf": 0.738
-    },
-    "aqascore": {
-     "qwen3omni": 0.9149,
-     "af": 0.469,
-     "mf": 0.9707
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/sdd/07_138/acestep_1_5.wav",
-    "clap_caption": 0.2673,
-    "muq_caption": 0.1138,
-    "clap_pertag_mean": 0.2614,
-    "muq_pertag_mean": 0.0374,
-    "mqa_mean": {
-     "qwen3omni": 0.5132,
-     "af": 0.5891,
-     "mf": 0.6957
-    },
-    "aqascore": {
-     "qwen3omni": 0.9941,
-     "af": 0.7059,
-     "mf": 0.9797
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/sdd/07_138/GT.mp3",
-    "clap_caption": 0.4834,
-    "muq_caption": -0.0255,
-    "clap_pertag_mean": 0.3581,
-    "muq_pertag_mean": 0.0598,
-    "mqa_mean": {
-     "qwen3omni": 0.7535,
-     "af": 0.6013,
-     "mf": 0.8264
-    },
-    "aqascore": {
-     "qwen3omni": 0.9933,
-     "af": 0.9579,
-     "mf": 0.9903
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "context",
-    "tag": "movie soundtrack",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9941,
-      "af": 0.9627,
-      "mf": 0.9924
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9903,
-      "af": 0.9526,
-      "mf": 0.9669
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9996,
-      "af": 0.9466,
-      "mf": 0.9933
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9933,
-      "af": 0.9149,
-      "mf": 0.977
-     },
-     "GT": {
-      "qwen3omni": 0.9996,
-      "af": 0.989,
-      "mf": 0.9983
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "dramatic",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9669,
-      "af": 0.9399,
-      "mf": 0.977
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.7549,
-      "af": 0.3489,
-      "mf": 0.4073
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9954,
-      "af": 0.9399,
-      "mf": 0.9669
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0421,
-      "af": 0.2944,
-      "mf": 0.4378
-     },
-     "GT": {
-      "qwen3omni": 0.9627,
-      "af": 0.4386,
-      "mf": 0.977
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "playful",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.8355,
-      "af": 0.469,
-      "mf": 0.0474
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.8808,
-      "af": 0.8671,
-      "mf": 0.867
-     },
-     "meanaudio": {
-      "qwen3omni": 0.0015,
-      "af": 0.1646,
-      "mf": 0.0676
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9996,
-      "af": 0.9242,
-      "mf": 0.9903
-     },
-     "GT": {
-      "qwen3omni": 0.9325,
-      "af": 0.7316,
-      "mf": 0.3776
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "suspense",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9903,
-      "af": 0.9579,
-      "mf": 0.9987
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.5927,
-      "af": 0.1068,
-      "mf": 0.3776
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9325,
-      "af": 0.7312,
-      "mf": 0.9241
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.018,
-      "af": 0.2229,
-      "mf": 0.3776
-     },
-     "GT": {
-      "qwen3omni": 0.1192,
-      "af": 0.2458,
-      "mf": 0.9526
-     }
-    }
-   }
-  ]
- },
- {
   "rank": 8,
   "dataset": "sdd",
   "id": "591",
@@ -6503,7 +3574,7 @@ window.SOTA_PROMPTS = [
     "mqa_mean": {
      "qwen3omni": 0.3848,
      "af": 0.2782,
-     "mf": 0.5997
+     "mf": 0.5996
     },
     "aqascore": {
      "qwen3omni": 0.0851,
@@ -6705,773 +3776,267 @@ window.SOTA_PROMPTS = [
   ]
  },
  {
-  "rank": 9,
+  "rank": 7,
   "dataset": "sdd",
-  "id": "387",
+  "id": "138",
   "caption_segments": [
    {
-    "text": "The song has a very "
+    "text": "Possibly a "
    },
    {
-    "text": "happy",
+    "text": "movie soundtrack",
+    "dim": "context",
+    "tag": "movie soundtrack"
+   },
+   {
+    "text": ", this instrumental piece has a "
+   },
+   {
+    "text": "dramatic",
     "dim": "mood_theme",
-    "tag": "happy"
+    "tag": "dramatic"
    },
    {
-    "text": " and "
+    "text": " tone, creates a slight "
    },
    {
-    "text": "relaxing",
+    "text": "suspense",
     "dim": "mood_theme",
-    "tag": "relaxing"
+    "tag": "suspense"
    },
    {
-    "text": " vibe. It is an alternative "
+    "text": " and a "
    },
    {
-    "text": "rock",
-    "dim": "genre",
-    "tag": "rock"
-   },
-   {
-    "text": " instrumental song, that has "
-   },
-   {
-    "text": "guitar",
-    "dim": "instrument",
-    "tag": "guitar"
-   },
-   {
-    "text": " "
-   },
-   {
-    "text": "drums",
-    "dim": "instrument",
-    "tag": "drums"
-   },
-   {
-    "text": " and "
-   },
-   {
-    "text": "bass",
-    "dim": "instrument",
-    "tag": "bass"
-   },
-   {
-    "text": " and "
-   },
-   {
-    "text": "pad synth",
-    "dim": "instrument",
-    "tag": "pad synth"
-   },
-   {
-    "text": ". The songs sounds "
-   },
-   {
-    "text": "emotional",
+    "text": "playful",
     "dim": "mood_theme",
-    "tag": "emotional"
+    "tag": "playful"
    },
    {
-    "text": " and "
-   },
-   {
-    "text": "motivating",
-    "dim": "mood_theme",
-    "tag": "motivating"
+    "text": " continuing"
    }
   ],
   "unlocated": [],
-  "key_tag": "genre:rock",
-  "key_spread": 0.9969,
-  "winner": "stable_audio_3",
-  "loser": "acestep_1_5",
+  "key_tag": "mood_theme:playful",
+  "key_spread": 0.9981,
+  "winner": "acestep_1_5",
+  "loser": "meanaudio",
   "tradeoff": true,
-  "clap_spread": 0.0718,
+  "clap_spread": 0.0679,
   "aqa_spread": {
-   "qwen3omni": 0.8049,
-   "af": 0.2726,
-   "mf": 0.6254
+   "qwen3omni": 0.0823,
+   "af": 0.4204,
+   "mf": 0.0375
   },
   "models": {
    "musicgen_large": {
-    "demo_audio": "audio/sdd/09_387/musicgen_large.wav",
-    "clap_caption": 0.2398,
-    "muq_caption": 0.5615,
-    "clap_pertag_mean": 0.1663,
-    "muq_pertag_mean": 0.2483,
+    "demo_audio": "audio/sdd/07_138/musicgen_large.wav",
+    "clap_caption": 0.2183,
+    "muq_caption": 0.0937,
+    "clap_pertag_mean": 0.1591,
+    "muq_pertag_mean": -0.0,
     "mqa_mean": {
-     "qwen3omni": 0.6598,
-     "af": 0.7887,
-     "mf": 0.5222
+     "qwen3omni": 0.9467,
+     "af": 0.8324,
+     "mf": 0.7539
     },
     "aqascore": {
-     "qwen3omni": 0.5927,
-     "af": 0.9149,
-     "mf": 0.0293
+     "qwen3omni": 0.9972,
+     "af": 0.7982,
+     "mf": 0.9841
     }
    },
    "stable_audio_3": {
-    "demo_audio": "audio/sdd/09_387/stable_audio_3.wav",
-    "clap_caption": 0.3115,
-    "muq_caption": 0.4727,
-    "clap_pertag_mean": 0.1804,
-    "muq_pertag_mean": 0.2278,
+    "demo_audio": "audio/sdd/07_138/stable_audio_3.wav",
+    "clap_caption": 0.2017,
+    "muq_caption": 0.2189,
+    "clap_pertag_mean": 0.2326,
+    "muq_pertag_mean": 0.0761,
     "mqa_mean": {
-     "qwen3omni": 0.7167,
-     "af": 0.8038,
-     "mf": 0.5976
+     "qwen3omni": 0.8047,
+     "af": 0.5688,
+     "mf": 0.6547
     },
     "aqascore": {
-     "qwen3omni": 0.9241,
-     "af": 0.9241,
-     "mf": 0.026
+     "qwen3omni": 0.9914,
+     "af": 0.3778,
+     "mf": 0.9466
     }
    },
    "meanaudio": {
-    "demo_audio": "audio/sdd/09_387/meanaudio.wav",
-    "clap_caption": 0.2497,
-    "muq_caption": 0.1451,
-    "clap_pertag_mean": 0.1475,
-    "muq_pertag_mean": 0.1624,
+    "demo_audio": "audio/sdd/07_138/meanaudio.wav",
+    "clap_caption": 0.1994,
+    "muq_caption": 0.1159,
+    "clap_pertag_mean": 0.089,
+    "muq_pertag_mean": 0.1259,
     "mqa_mean": {
-     "qwen3omni": 0.686,
-     "af": 0.4439,
-     "mf": 0.5426
-    },
-    "aqascore": {
-     "qwen3omni": 0.1192,
-     "af": 0.6515,
-     "mf": 0.0293
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/sdd/09_387/acestep_1_5.wav",
-    "clap_caption": 0.2739,
-    "muq_caption": 0.1731,
-    "clap_pertag_mean": 0.2871,
-    "muq_pertag_mean": 0.1643,
-    "mqa_mean": {
-     "qwen3omni": 0.7346,
-     "af": 0.6108,
-     "mf": 0.5812
-    },
-    "aqascore": {
-     "qwen3omni": 0.1824,
-     "af": 0.8355,
-     "mf": 0.6514
-    }
-   },
-   "GT": {
-    "demo_audio": "audio/sdd/09_387/GT.mp3",
-    "clap_caption": 0.4396,
-    "muq_caption": 0.5189,
-    "clap_pertag_mean": 0.3336,
-    "muq_pertag_mean": 0.2662,
-    "mqa_mean": {
-     "qwen3omni": 0.7118,
-     "af": 0.7931,
-     "mf": 0.597
-    },
-    "aqascore": {
-     "qwen3omni": 0.8519,
-     "af": 0.8672,
-     "mf": 0.3209
-    }
-   }
-  },
-  "per_tag": [
-   {
-    "attribute": "genre",
-    "tag": "rock",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9797,
-      "af": 0.9242,
-      "mf": 0.9914
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9988,
-      "af": 0.9242,
-      "mf": 0.8933
-     },
-     "meanaudio": {
-      "qwen3omni": 0.011,
-      "af": 0.0852,
-      "mf": 0.133
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0019,
-      "af": 0.1482,
-      "mf": 0.0086
-     },
-     "GT": {
-      "qwen3omni": 0.9972,
-      "af": 0.915,
-      "mf": 0.9046
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "bass",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.6792,
-      "af": 0.7983,
-      "mf": 0.5927
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.8355,
-      "af": 0.8933,
-      "mf": 0.7058
-     },
-     "meanaudio": {
-      "qwen3omni": 0.6792,
-      "af": 0.5625,
-      "mf": 0.9981
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.7773,
-      "af": 0.6516,
-      "mf": 0.4073
-     },
-     "GT": {
-      "qwen3omni": 0.9399,
-      "af": 0.9819,
-      "mf": 0.5622
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "drums",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9797,
-      "af": 0.5002,
-      "mf": 0.9978
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.999,
-      "af": 0.8671,
-      "mf": 0.8808
-     },
-     "meanaudio": {
-      "qwen3omni": 0.3487,
-      "af": 0.0676,
-      "mf": 0.011
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.852,
-      "af": 0.2945,
-      "mf": 0.2451
-     },
-     "GT": {
-      "qwen3omni": 0.9972,
-      "af": 0.7984,
-      "mf": 0.2018
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "guitar",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9994,
-      "af": 0.9627,
-      "mf": 0.9985
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9998,
-      "af": 0.9325,
-      "mf": 0.9579
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9991,
-      "af": 0.9526,
-      "mf": 0.9988
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.4688,
-      "af": 0.5315,
-      "mf": 0.3487
-     },
-     "GT": {
-      "qwen3omni": 0.9999,
-      "af": 0.9937,
-      "mf": 0.9978
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "pad synth",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.3208,
-      "af": 0.7773,
-      "mf": 0.0086
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.2942,
-      "af": 0.7059,
-      "mf": 0.0474
-     },
-     "meanaudio": {
-      "qwen3omni": 0.6792,
-      "af": 0.1482,
-      "mf": 0.8933
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9707,
-      "af": 0.8176,
-      "mf": 0.9876
-     },
-     "GT": {
-      "qwen3omni": 0.0601,
-      "af": 0.9239,
-      "mf": 0.3208
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "emotional",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.9797,
-      "af": 0.9707,
-      "mf": 0.8808
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.989,
-      "af": 0.9466,
-      "mf": 0.8176
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9707,
-      "af": 0.9149,
-      "mf": 0.9149
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9526,
-      "af": 0.9466,
-      "mf": 0.9579
-     },
-     "GT": {
-      "qwen3omni": 0.9968,
-      "af": 0.9903,
-      "mf": 0.982
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "happy",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.0159,
-      "af": 0.5314,
-      "mf": 0.0474
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.2451,
-      "af": 0.3778,
-      "mf": 0.1067
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9466,
-      "af": 0.2944,
-      "mf": 0.0954
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9466,
-      "af": 0.7059,
-      "mf": 0.8355
-     },
-     "GT": {
-      "qwen3omni": 0.269,
-      "af": 0.2024,
-      "mf": 0.0421
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "motivating",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.8355,
-      "af": 0.7982,
-      "mf": 0.1645
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9241,
-      "af": 0.7059,
-      "mf": 0.9399
-     },
-     "meanaudio": {
-      "qwen3omni": 0.5622,
-      "af": 0.4075,
-      "mf": 0.7058
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.6514,
-      "af": 0.469,
-      "mf": 0.5
-     },
-     "GT": {
-      "qwen3omni": 0.982,
-      "af": 0.6796,
-      "mf": 0.8933
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "relaxing",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.1481,
-      "af": 0.8355,
-      "mf": 0.018
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.1645,
-      "af": 0.8808,
-      "mf": 0.0293
-     },
-     "meanaudio": {
-      "qwen3omni": 0.977,
-      "af": 0.5623,
-      "mf": 0.133
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9903,
-      "af": 0.9325,
-      "mf": 0.9399
-     },
-     "GT": {
-      "qwen3omni": 0.1645,
-      "af": 0.6523,
-      "mf": 0.4688
-     }
-    }
-   }
-  ]
- },
- {
-  "rank": 10,
-  "dataset": "sdd",
-  "id": "1060",
-  "caption_segments": [
-   {
-    "text": "This "
-   },
-   {
-    "text": "rock",
-    "dim": "genre",
-    "tag": "rock"
-   },
-   {
-    "text": " song has an indie "
-   },
-   {
-    "text": "rock",
-    "dim": "genre",
-    "tag": "rock"
-   },
-   {
-    "text": " genre but with a "
-   },
-   {
-    "text": "dancing",
-    "dim": "mood_theme",
-    "tag": "dancing"
-   },
-   {
-    "text": "  "
-   },
-   {
-    "text": "joyful",
-    "dim": "mood_theme",
-    "tag": "joyful"
-   },
-   {
-    "text": " vibe to it and licks / effects using "
-   },
-   {
-    "text": "synths",
-    "dim": "instrument",
-    "tag": "synths"
-   },
-   {
-    "text": " along with "
-   },
-   {
-    "text": "whistle",
-    "dim": "instrument",
-    "tag": "whistle"
-   },
-   {
-    "text": " at the end"
-   }
-  ],
-  "unlocated": [],
-  "key_tag": "genre:rock",
-  "key_spread": 0.9624,
-  "winner": "meanaudio",
-  "loser": "stable_audio_3",
-  "tradeoff": true,
-  "clap_spread": 0.0771,
-  "aqa_spread": {
-   "qwen3omni": 0.8889,
-   "af": 0.4565,
-   "mf": 0.6552
-  },
-  "models": {
-   "musicgen_large": {
-    "demo_audio": "audio/sdd/10_1060/musicgen_large.wav",
-    "clap_caption": 0.2462,
-    "muq_caption": 0.4663,
-    "clap_pertag_mean": 0.1741,
-    "muq_pertag_mean": 0.1783,
-    "mqa_mean": {
-     "qwen3omni": 0.3717,
-     "af": 0.7411,
-     "mf": 0.4201
-    },
-    "aqascore": {
-     "qwen3omni": 0.0676,
-     "af": 0.6794,
-     "mf": 0.6514
-    }
-   },
-   "stable_audio_3": {
-    "demo_audio": "audio/sdd/10_1060/stable_audio_3.wav",
-    "clap_caption": 0.3093,
-    "muq_caption": 0.4911,
-    "clap_pertag_mean": 0.2359,
-    "muq_pertag_mean": 0.1521,
-    "mqa_mean": {
-     "qwen3omni": 0.642,
-     "af": 0.6787,
-     "mf": 0.6649
-    },
-    "aqascore": {
-     "qwen3omni": 0.7311,
-     "af": 0.7776,
-     "mf": 0.7311
-    }
-   },
-   "meanaudio": {
-    "demo_audio": "audio/sdd/10_1060/meanaudio.wav",
-    "clap_caption": 0.2496,
-    "muq_caption": 0.1721,
-    "clap_pertag_mean": 0.0613,
-    "muq_pertag_mean": 0.1595,
-    "mqa_mean": {
-     "qwen3omni": 0.3024,
-     "af": 0.6032,
-     "mf": 0.4992
-    },
-    "aqascore": {
-     "qwen3omni": 0.026,
-     "af": 0.3211,
-     "mf": 0.0759
-    }
-   },
-   "acestep_1_5": {
-    "demo_audio": "audio/sdd/10_1060/acestep_1_5.wav",
-    "clap_caption": 0.3233,
-    "muq_caption": 0.2225,
-    "clap_pertag_mean": 0.2596,
-    "muq_pertag_mean": 0.1023,
-    "mqa_mean": {
-     "qwen3omni": 0.757,
-     "af": 0.7677,
-     "mf": 0.5995
+     "qwen3omni": 0.7322,
+     "af": 0.6956,
+     "mf": 0.738
     },
     "aqascore": {
      "qwen3omni": 0.9149,
-     "af": 0.706,
-     "mf": 0.4379
+     "af": 0.469,
+     "mf": 0.9707
     }
    },
-   "GT": {
-    "demo_audio": "audio/sdd/10_1060/GT.mp3",
-    "clap_caption": 0.3767,
-    "muq_caption": 0.4736,
-    "clap_pertag_mean": 0.2958,
-    "muq_pertag_mean": 0.263,
+   "acestep_1_5": {
+    "demo_audio": "audio/sdd/07_138/acestep_1_5.wav",
+    "clap_caption": 0.2673,
+    "muq_caption": 0.1138,
+    "clap_pertag_mean": 0.2614,
+    "muq_pertag_mean": 0.0374,
     "mqa_mean": {
-     "qwen3omni": 0.9438,
-     "af": 0.8257,
-     "mf": 0.7161
+     "qwen3omni": 0.5132,
+     "af": 0.5891,
+     "mf": 0.6957
     },
     "aqascore": {
      "qwen3omni": 0.9941,
-     "af": 0.4393,
-     "mf": 0.9149
+     "af": 0.7059,
+     "mf": 0.9797
+    }
+   },
+   "GT": {
+    "demo_audio": "audio/sdd/07_138/GT.mp3",
+    "clap_caption": 0.4834,
+    "muq_caption": -0.0255,
+    "clap_pertag_mean": 0.3581,
+    "muq_pertag_mean": 0.0598,
+    "mqa_mean": {
+     "qwen3omni": 0.7535,
+     "af": 0.6012,
+     "mf": 0.8264
+    },
+    "aqascore": {
+     "qwen3omni": 0.9933,
+     "af": 0.9579,
+     "mf": 0.9903
     }
    }
   },
   "per_tag": [
    {
-    "attribute": "genre",
-    "tag": "rock",
+    "attribute": "context",
+    "tag": "movie soundtrack",
     "scores": {
      "musicgen_large": {
-      "qwen3omni": 0.9972,
+      "qwen3omni": 0.9941,
       "af": 0.9627,
-      "mf": 0.8933
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.0373,
-      "af": 0.2021,
-      "mf": 0.2942
-     },
-     "meanaudio": {
-      "qwen3omni": 0.9997,
-      "af": 0.9466,
-      "mf": 0.9903
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0601,
-      "af": 0.2229,
-      "mf": 0.0293
-     },
-     "GT": {
-      "qwen3omni": 0.9841,
-      "af": 0.322,
-      "mf": 0.5
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "synths",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.1481,
-      "af": 0.9399,
-      "mf": 0.3487
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.2451,
-      "af": 0.2695,
-      "mf": 0.0534
-     },
-     "meanaudio": {
-      "qwen3omni": 0.0036,
-      "af": 0.4076,
-      "mf": 0.0159
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.867,
-      "af": 0.9242,
-      "mf": 0.982
-     },
-     "GT": {
-      "qwen3omni": 0.7773,
-      "af": 0.9937,
-      "mf": 0.9241
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "whistle",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.0028,
-      "af": 0.0954,
-      "mf": 0.0052
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9399,
-      "af": 0.9914,
       "mf": 0.9924
      },
-     "meanaudio": {
-      "qwen3omni": 0.0534,
-      "af": 0.1068,
-      "mf": 0.4378
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.867,
-      "af": 0.8933,
-      "mf": 0.0954
-     },
-     "GT": {
-      "qwen3omni": 0.9841,
-      "af": 0.8352,
-      "mf": 0.7311
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "dancing",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.5622,
-      "af": 0.9526,
-      "mf": 0.7773
-     },
      "stable_audio_3": {
-      "qwen3omni": 0.9876,
-      "af": 0.9466,
-      "mf": 0.9914
+      "qwen3omni": 0.9903,
+      "af": 0.9526,
+      "mf": 0.9669
      },
      "meanaudio": {
-      "qwen3omni": 0.1067,
-      "af": 0.7774,
-      "mf": 0.3208
+      "qwen3omni": 0.9996,
+      "af": 0.9466,
+      "mf": 0.9933
      },
      "acestep_1_5": {
       "qwen3omni": 0.9933,
-      "af": 0.9627,
-      "mf": 0.9669
+      "af": 0.9149,
+      "mf": 0.977
      },
      "GT": {
-      "qwen3omni": 0.982,
-      "af": 0.9933,
-      "mf": 0.9876
+      "qwen3omni": 0.9996,
+      "af": 0.989,
+      "mf": 0.9983
      }
     }
    },
    {
     "attribute": "mood_theme",
-    "tag": "joyful",
+    "tag": "dramatic",
     "scores": {
      "musicgen_large": {
-      "qwen3omni": 0.1481,
-      "af": 0.755,
-      "mf": 0.0759
+      "qwen3omni": 0.9669,
+      "af": 0.9399,
+      "mf": 0.977
      },
      "stable_audio_3": {
-      "qwen3omni": 0.9999,
-      "af": 0.9841,
-      "mf": 0.9933
+      "qwen3omni": 0.7549,
+      "af": 0.3489,
+      "mf": 0.4073
      },
      "meanaudio": {
-      "qwen3omni": 0.3487,
-      "af": 0.7774,
-      "mf": 0.7311
+      "qwen3omni": 0.9954,
+      "af": 0.9399,
+      "mf": 0.9669
      },
      "acestep_1_5": {
-      "qwen3omni": 0.9978,
-      "af": 0.8355,
-      "mf": 0.9241
+      "qwen3omni": 0.0421,
+      "af": 0.2944,
+      "mf": 0.4378
      },
      "GT": {
-      "qwen3omni": 0.9914,
-      "af": 0.9841,
-      "mf": 0.4378
+      "qwen3omni": 0.9627,
+      "af": 0.4386,
+      "mf": 0.977
+     }
+    }
+   },
+   {
+    "attribute": "mood_theme",
+    "tag": "playful",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.8355,
+      "af": 0.469,
+      "mf": 0.0474
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.8808,
+      "af": 0.8671,
+      "mf": 0.867
+     },
+     "meanaudio": {
+      "qwen3omni": 0.0015,
+      "af": 0.1646,
+      "mf": 0.0676
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.9996,
+      "af": 0.9242,
+      "mf": 0.9903
+     },
+     "GT": {
+      "qwen3omni": 0.9325,
+      "af": 0.7316,
+      "mf": 0.3776
+     }
+    }
+   },
+   {
+    "attribute": "mood_theme",
+    "tag": "suspense",
+    "scores": {
+     "musicgen_large": {
+      "qwen3omni": 0.9903,
+      "af": 0.9579,
+      "mf": 0.9987
+     },
+     "stable_audio_3": {
+      "qwen3omni": 0.5927,
+      "af": 0.1068,
+      "mf": 0.3776
+     },
+     "meanaudio": {
+      "qwen3omni": 0.9325,
+      "af": 0.7312,
+      "mf": 0.9241
+     },
+     "acestep_1_5": {
+      "qwen3omni": 0.018,
+      "af": 0.2229,
+      "mf": 0.3776
+     },
+     "GT": {
+      "qwen3omni": 0.1192,
+      "af": 0.2458,
+      "mf": 0.9526
      }
     }
    }
