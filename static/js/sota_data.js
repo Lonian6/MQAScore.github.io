@@ -40,15 +40,7 @@ window.SOTA_PROMPTS = [
     "tag": "trumpet"
    },
    {
-    "text": " playing the main melody. A fast-paced electronic percussion is playing in the rhythmic background. This is a "
-   },
-   {
-    "text": "dizzyingly",
-    "dim": "mood_theme",
-    "tag": "dizzying"
-   },
-   {
-    "text": " high tempo song. It is very "
+    "text": " playing the main melody. A fast-paced electronic percussion is playing in the rhythmic background. This is a dizzyingly high tempo song. It is very "
    },
    {
     "text": "danceable",
@@ -95,9 +87,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.2647,
     "muq_pertag_mean": 0.2575,
     "mqa_mean": {
-     "qwen3omni": 0.6616,
-     "af": 0.7712,
-     "mf": 0.6364
+     "qwen3omni": 0.6303,
+     "af": 0.7619,
+     "mf": 0.647
     },
     "aqascore": {
      "qwen3omni": 0.0141,
@@ -112,9 +104,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.3279,
     "muq_pertag_mean": 0.2153,
     "mqa_mean": {
-     "qwen3omni": 0.7099,
-     "af": 0.7737,
-     "mf": 0.6329
+     "qwen3omni": 0.7267,
+     "af": 0.7604,
+     "mf": 0.5926
     },
     "aqascore": {
      "qwen3omni": 0.0293,
@@ -129,9 +121,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.1334,
     "muq_pertag_mean": 0.3239,
     "mqa_mean": {
-     "qwen3omni": 0.8501,
-     "af": 0.7759,
-     "mf": 0.8073
+     "qwen3omni": 0.8548,
+     "af": 0.8409,
+     "mf": 0.8116
     },
     "aqascore": {
      "qwen3omni": 0.3208,
@@ -146,9 +138,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.2943,
     "muq_pertag_mean": 0.2176,
     "mqa_mean": {
-     "qwen3omni": 0.8035,
-     "af": 0.6837,
-     "mf": 0.6107
+     "qwen3omni": 0.7989,
+     "af": 0.6703,
+     "mf": 0.5703
     },
     "aqascore": {
      "qwen3omni": 0.0421,
@@ -163,9 +155,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.1287,
     "muq_pertag_mean": 0.3923,
     "mqa_mean": {
-     "qwen3omni": 0.8882,
-     "af": 0.765,
-     "mf": 0.6922
+     "qwen3omni": 0.9392,
+     "af": 0.7698,
+     "mf": 0.698
     },
     "aqascore": {
      "qwen3omni": 0.9964,
@@ -358,37 +350,6 @@ window.SOTA_PROMPTS = [
       "qwen3omni": 0.9998,
       "af": 0.9975,
       "mf": 0.9981
-     }
-    }
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "dizzying",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.8808,
-      "af": 0.8355,
-      "mf": 0.5622
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.5927,
-      "af": 0.8671,
-      "mf": 0.9149
-     },
-     "meanaudio": {
-      "qwen3omni": 0.8176,
-      "af": 0.321,
-      "mf": 0.7773
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.8355,
-      "af": 0.7774,
-      "mf": 0.8933
-     },
-     "GT": {
-      "qwen3omni": 0.5312,
-      "af": 0.7311,
-      "mf": 0.6514
      }
     }
    },
@@ -1584,7 +1545,7 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.2984,
     "muq_pertag_mean": 0.179,
     "mqa_mean": {
-     "qwen3omni": 0.6334,
+     "qwen3omni": 0.6335,
      "af": 0.6676,
      "mf": 0.6478
     },
@@ -2027,7 +1988,7 @@ window.SOTA_PROMPTS = [
     "mqa_mean": {
      "qwen3omni": 0.3306,
      "af": 0.4335,
-     "mf": 0.41
+     "mf": 0.4101
     },
     "aqascore": {
      "qwen3omni": 0.0052,
@@ -2044,7 +2005,7 @@ window.SOTA_PROMPTS = [
     "mqa_mean": {
      "qwen3omni": 0.8061,
      "af": 0.824,
-     "mf": 0.8897
+     "mf": 0.8898
     },
     "aqascore": {
      "qwen3omni": 0.9669,
@@ -2337,8 +2298,8 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.0973,
     "muq_pertag_mean": 0.1896,
     "mqa_mean": {
-     "qwen3omni": 0.8452,
-     "af": 0.83,
+     "qwen3omni": 0.8451,
+     "af": 0.8299,
      "mf": 0.7317
     },
     "aqascore": {
@@ -2354,7 +2315,7 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.2468,
     "muq_pertag_mean": -0.0257,
     "mqa_mean": {
-     "qwen3omni": 0.9948,
+     "qwen3omni": 0.9949,
      "af": 0.8552,
      "mf": 0.9167
     },
@@ -2372,8 +2333,8 @@ window.SOTA_PROMPTS = [
     "muq_pertag_mean": 0.275,
     "mqa_mean": {
      "qwen3omni": 0.9989,
-     "af": 0.9925,
-     "mf": 0.9467
+     "af": 0.9926,
+     "mf": 0.9466
     },
     "aqascore": {
      "qwen3omni": 0.9997,
@@ -2633,7 +2594,7 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.1616,
     "muq_pertag_mean": 0.3055,
     "mqa_mean": {
-     "qwen3omni": 0.6306,
+     "qwen3omni": 0.6307,
      "af": 0.8024,
      "mf": 0.6793
     },
@@ -2668,7 +2629,7 @@ window.SOTA_PROMPTS = [
     "muq_pertag_mean": 0.3196,
     "mqa_mean": {
      "qwen3omni": 0.7482,
-     "af": 0.6944,
+     "af": 0.6945,
      "mf": 0.5513
     },
     "aqascore": {
@@ -3595,14 +3556,6 @@ window.SOTA_PROMPTS = [
   ],
   "unlocated": [
    {
-    "dim": "instrument",
-    "tag": "female vocal"
-   },
-   {
-    "dim": "instrument",
-    "tag": "male vocal"
-   },
-   {
     "dim": "vocal",
     "tag": "female vocal"
    },
@@ -3611,7 +3564,7 @@ window.SOTA_PROMPTS = [
     "tag": "male vocal"
    }
   ],
-  "key_tag": "instrument:female vocal",
+  "key_tag": "vocal:female vocal",
   "key_spread": 0.9884,
   "winner": "stable_audio_3",
   "loser": "acestep_1_5",
@@ -3630,9 +3583,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.1569,
     "muq_pertag_mean": 0.0581,
     "mqa_mean": {
-     "qwen3omni": 0.3954,
-     "af": 0.4593,
-     "mf": 0.1924
+     "qwen3omni": 0.5068,
+     "af": 0.5176,
+     "mf": 0.2437
     },
     "aqascore": {
      "qwen3omni": 0.011,
@@ -3647,9 +3600,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.2676,
     "muq_pertag_mean": 0.1994,
     "mqa_mean": {
-     "qwen3omni": 0.7545,
-     "af": 0.5428,
-     "mf": 0.4835
+     "qwen3omni": 0.7208,
+     "af": 0.5305,
+     "mf": 0.4863
     },
     "aqascore": {
      "qwen3omni": 0.3208,
@@ -3664,9 +3617,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.1788,
     "muq_pertag_mean": 0.2925,
     "mqa_mean": {
-     "qwen3omni": 0.6832,
-     "af": 0.5298,
-     "mf": 0.5148
+     "qwen3omni": 0.7337,
+     "af": 0.63,
+     "mf": 0.5987
     },
     "aqascore": {
      "qwen3omni": 0.731,
@@ -3681,9 +3634,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.1725,
     "muq_pertag_mean": 0.1545,
     "mqa_mean": {
-     "qwen3omni": 0.2794,
-     "af": 0.4224,
-     "mf": 0.2295
+     "qwen3omni": 0.3586,
+     "af": 0.4857,
+     "mf": 0.2855
     },
     "aqascore": {
      "qwen3omni": 0.0022,
@@ -3698,9 +3651,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.1912,
     "muq_pertag_mean": 0.3789,
     "mqa_mean": {
-     "qwen3omni": 0.7812,
-     "af": 0.5706,
-     "mf": 0.5703
+     "qwen3omni": 0.7221,
+     "af": 0.5598,
+     "mf": 0.5846
     },
     "aqascore": {
      "qwen3omni": 0.2451,
@@ -3800,68 +3753,6 @@ window.SOTA_PROMPTS = [
       "qwen3omni": 0.0421,
       "af": 0.0759,
       "mf": 0.0025
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "female vocal",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.0086,
-      "af": 0.3778,
-      "mf": 0.0159
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9903,
-      "af": 0.989,
-      "mf": 0.8933
-     },
-     "meanaudio": {
-      "qwen3omni": 0.1192,
-      "af": 0.0373,
-      "mf": 0.0046
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0019,
-      "af": 0.2691,
-      "mf": 0.0373
-     },
-     "GT": {
-      "qwen3omni": 0.9903,
-      "af": 0.9933,
-      "mf": 0.8176
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "male vocal",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.0025,
-      "af": 0.1331,
-      "mf": 0.0097
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.7549,
-      "af": 0.1826,
-      "mf": 0.0534
-     },
-     "meanaudio": {
-      "qwen3omni": 0.8933,
-      "af": 0.3211,
-      "mf": 0.4378
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.0022,
-      "af": 0.1331,
-      "mf": 0.0293
-     },
-     "GT": {
-      "qwen3omni": 0.9859,
-      "af": 0.2229,
-      "mf": 0.2227
      }
     }
    },
@@ -4409,7 +4300,7 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.1301,
     "muq_pertag_mean": 0.3011,
     "mqa_mean": {
-     "qwen3omni": 0.6945,
+     "qwen3omni": 0.6944,
      "af": 0.6354,
      "mf": 0.7001
     },
@@ -5160,15 +5051,7 @@ window.SOTA_PROMPTS = [
     "tag": "electronic"
    },
    {
-    "text": " music with occasional "
-   },
-   {
-    "text": "melody",
-    "dim": "instrument",
-    "tag": "melody"
-   },
-   {
-    "text": " woah which keeps looping over and over"
+    "text": " music with occasional melody woah which keeps looping over and over"
    }
   ],
   "unlocated": [],
@@ -5191,9 +5074,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.14,
     "muq_pertag_mean": 0.1798,
     "mqa_mean": {
-     "qwen3omni": 0.7269,
-     "af": 0.8422,
-     "mf": 0.7111
+     "qwen3omni": 0.9991,
+     "af": 0.9821,
+     "mf": 0.9844
     },
     "aqascore": {
      "qwen3omni": 0.9046,
@@ -5208,9 +5091,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.3991,
     "muq_pertag_mean": 0.1408,
     "mqa_mean": {
-     "qwen3omni": 0.6718,
-     "af": 0.6916,
-     "mf": 0.6198
+     "qwen3omni": 0.5224,
+     "af": 0.6285,
+     "mf": 0.512
     },
     "aqascore": {
      "qwen3omni": 0.7982,
@@ -5225,9 +5108,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.009,
     "muq_pertag_mean": 0.2264,
     "mqa_mean": {
-     "qwen3omni": 0.7422,
-     "af": 0.689,
-     "mf": 0.6788
+     "qwen3omni": 0.9788,
+     "af": 0.9859,
+     "mf": 0.9844
     },
     "aqascore": {
      "qwen3omni": 0.9046,
@@ -5242,9 +5125,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.3207,
     "muq_pertag_mean": 0.1901,
     "mqa_mean": {
-     "qwen3omni": 0.9296,
-     "af": 0.8037,
-     "mf": 0.6745
+     "qwen3omni": 0.9154,
+     "af": 0.7878,
+     "mf": 0.5544
     },
     "aqascore": {
      "qwen3omni": 0.867,
@@ -5259,9 +5142,9 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.2936,
     "muq_pertag_mean": 0.2441,
     "mqa_mean": {
-     "qwen3omni": 0.8663,
-     "af": 0.793,
-     "mf": 0.5952
+     "qwen3omni": 0.9881,
+     "af": 0.9548,
+     "mf": 0.6583
     },
     "aqascore": {
      "qwen3omni": 0.9241,
@@ -5299,37 +5182,6 @@ window.SOTA_PROMPTS = [
       "qwen3omni": 0.9993,
       "af": 0.9948,
       "mf": 0.9959
-     }
-    }
-   },
-   {
-    "attribute": "instrument",
-    "tag": "melody",
-    "scores": {
-     "musicgen_large": {
-      "qwen3omni": 0.1824,
-      "af": 0.5623,
-      "mf": 0.1645
-     },
-     "stable_audio_3": {
-      "qwen3omni": 0.9707,
-      "af": 0.8176,
-      "mf": 0.8355
-     },
-     "meanaudio": {
-      "qwen3omni": 0.269,
-      "af": 0.0954,
-      "mf": 0.0676
-     },
-     "acestep_1_5": {
-      "qwen3omni": 0.9579,
-      "af": 0.8355,
-      "mf": 0.9149
-     },
-     "GT": {
-      "qwen3omni": 0.6225,
-      "af": 0.4694,
-      "mf": 0.4688
      }
     }
    },
@@ -5756,7 +5608,7 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.2693,
     "muq_pertag_mean": 0.2373,
     "mqa_mean": {
-     "qwen3omni": 0.5492,
+     "qwen3omni": 0.5491,
      "af": 0.6592,
      "mf": 0.6857
     },
@@ -5808,7 +5660,7 @@ window.SOTA_PROMPTS = [
     "muq_pertag_mean": 0.2505,
     "mqa_mean": {
      "qwen3omni": 0.3499,
-     "af": 0.6035,
+     "af": 0.6036,
      "mf": 0.4205
     },
     "aqascore": {
@@ -6075,7 +5927,7 @@ window.SOTA_PROMPTS = [
     "mqa_mean": {
      "qwen3omni": 0.9841,
      "af": 0.7728,
-     "mf": 0.7403
+     "mf": 0.7404
     },
     "aqascore": {
      "qwen3omni": 0.9859,
@@ -6143,7 +5995,7 @@ window.SOTA_PROMPTS = [
     "mqa_mean": {
      "qwen3omni": 0.9385,
      "af": 0.8778,
-     "mf": 0.6337
+     "mf": 0.6338
     },
     "aqascore": {
      "qwen3omni": 0.9914,
@@ -6374,7 +6226,7 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.089,
     "muq_pertag_mean": 0.1259,
     "mqa_mean": {
-     "qwen3omni": 0.7322,
+     "qwen3omni": 0.7323,
      "af": 0.6956,
      "mf": 0.738
     },
@@ -6409,7 +6261,7 @@ window.SOTA_PROMPTS = [
     "muq_pertag_mean": 0.0598,
     "mqa_mean": {
      "qwen3omni": 0.7535,
-     "af": 0.6012,
+     "af": 0.6013,
      "mf": 0.8264
     },
     "aqascore": {
@@ -6651,7 +6503,7 @@ window.SOTA_PROMPTS = [
     "mqa_mean": {
      "qwen3omni": 0.3848,
      "af": 0.2782,
-     "mf": 0.5996
+     "mf": 0.5997
     },
     "aqascore": {
      "qwen3omni": 0.0851,
@@ -7019,8 +6871,8 @@ window.SOTA_PROMPTS = [
     "muq_pertag_mean": 0.2662,
     "mqa_mean": {
      "qwen3omni": 0.7118,
-     "af": 0.793,
-     "mf": 0.5971
+     "af": 0.7931,
+     "mf": 0.597
     },
     "aqascore": {
      "qwen3omni": 0.8519,
@@ -7406,8 +7258,8 @@ window.SOTA_PROMPTS = [
     "muq_pertag_mean": 0.1521,
     "mqa_mean": {
      "qwen3omni": 0.642,
-     "af": 0.6788,
-     "mf": 0.665
+     "af": 0.6787,
+     "mf": 0.6649
     },
     "aqascore": {
      "qwen3omni": 0.7311,
@@ -7423,7 +7275,7 @@ window.SOTA_PROMPTS = [
     "muq_pertag_mean": 0.1595,
     "mqa_mean": {
      "qwen3omni": 0.3024,
-     "af": 0.6031,
+     "af": 0.6032,
      "mf": 0.4992
     },
     "aqascore": {
@@ -7439,7 +7291,7 @@ window.SOTA_PROMPTS = [
     "clap_pertag_mean": 0.2596,
     "muq_pertag_mean": 0.1023,
     "mqa_mean": {
-     "qwen3omni": 0.7571,
+     "qwen3omni": 0.757,
      "af": 0.7677,
      "mf": 0.5995
     },
@@ -7457,7 +7309,7 @@ window.SOTA_PROMPTS = [
     "muq_pertag_mean": 0.263,
     "mqa_mean": {
      "qwen3omni": 0.9438,
-     "af": 0.8256,
+     "af": 0.8257,
      "mf": 0.7161
     },
     "aqascore": {

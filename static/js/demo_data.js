@@ -27,9 +27,9 @@ window.MUSICEVAL_PAIRS = [
     "mf": 0.1481
    },
    "mqa_mean": {
-    "qwen3omni": 0.8008,
-    "af": 0.8988,
-    "mf": 0.6273
+    "qwen3omni": 0.7562,
+    "af": 0.876,
+    "mf": 0.5492
    }
   },
   "B": {
@@ -47,9 +47,9 @@ window.MUSICEVAL_PAIRS = [
     "mf": 0.0759
    },
    "mqa_mean": {
-    "qwen3omni": 0.6093,
-    "af": 0.4981,
-    "mf": 0.4928
+    "qwen3omni": 0.5987,
+    "af": 0.4898,
+    "mf": 0.3765
    }
   },
   "per_tag": [
@@ -62,16 +62,6 @@ window.MUSICEVAL_PAIRS = [
     "qwen3omni_B": 0.0022,
     "af_B": 0.1069,
     "mf_B": 0.0004
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "contemporary",
-    "qwen3omni_A": 0.9797,
-    "af_A": 0.9903,
-    "mf_A": 0.9399,
-    "qwen3omni_B": 0.6514,
-    "af_B": 0.5315,
-    "mf_B": 0.9579
    },
    {
     "attribute": "instrument",
@@ -122,15 +112,7 @@ window.MUSICEVAL_PAIRS = [
     "tag": "strings"
    },
    {
-    "text": ". The song is performed with a "
-   },
-   {
-    "text": "contemporary",
-    "dim": "mood_theme",
-    "tag": "contemporary"
-   },
-   {
-    "text": " and "
+    "text": ". The song is performed with a contemporary and "
    },
    {
     "text": "dynamic",
@@ -193,8 +175,8 @@ window.MUSICEVAL_PAIRS = [
     "mf": 0.852
    },
    "mqa_mean": {
-    "qwen3omni": 0.3915,
-    "af": 0.5571,
+    "qwen3omni": 0.3916,
+    "af": 0.557,
     "mf": 0.4282
    }
   },
@@ -341,7 +323,7 @@ window.MUSICEVAL_PAIRS = [
    },
    "mqa_mean": {
     "qwen3omni": 0.7997,
-    "af": 0.3707,
+    "af": 0.3706,
     "mf": 0.2406
    }
   },
@@ -362,7 +344,7 @@ window.MUSICEVAL_PAIRS = [
    "mqa_mean": {
     "qwen3omni": 0.5019,
     "af": 0.2083,
-    "mf": 0.0616
+    "mf": 0.0617
    }
   },
   "per_tag": [
@@ -416,9 +398,9 @@ window.MUSICEVAL_PAIRS = [
   "caption": "This simple and upbeat saxophone piece features smooth, consistent playing with minimal pitch variation. The song is performed with a light and airy feel, perfect for easy listening.",
   "key_tag": "mood_theme:upbeat",
   "key_delta": 0.9857,
-  "tradeoff": true,
-  "opp_tag": "mood_theme:easy listening",
-  "opp_delta": -0.966,
+  "tradeoff": false,
+  "opp_tag": null,
+  "opp_delta": null,
   "human_agree": false,
   "A": {
    "id": "audiomos2025-track1-S008_P034",
@@ -435,9 +417,9 @@ window.MUSICEVAL_PAIRS = [
     "mf": 0.1481
    },
    "mqa_mean": {
-    "qwen3omni": 0.6745,
-    "af": 0.6644,
-    "mf": 0.5882
+    "qwen3omni": 0.9952,
+    "af": 0.862,
+    "mf": 0.5565
    }
   },
   "B": {
@@ -455,9 +437,9 @@ window.MUSICEVAL_PAIRS = [
     "mf": 0.1824
    },
    "mqa_mean": {
-    "qwen3omni": 0.3397,
-    "af": 0.5958,
-    "mf": 0.5835
+    "qwen3omni": 0.01,
+    "af": 0.3962,
+    "mf": 0.3785
    }
   },
   "per_tag": [
@@ -480,16 +462,6 @@ window.MUSICEVAL_PAIRS = [
     "qwen3omni_B": 0.0124,
     "af_B": 0.7551,
     "mf_B": 0.7549
-   },
-   {
-    "attribute": "mood_theme",
-    "tag": "easy listening",
-    "qwen3omni_A": 0.0331,
-    "af_A": 0.2692,
-    "mf_A": 0.6514,
-    "qwen3omni_B": 0.9991,
-    "af_B": 0.9948,
-    "mf_B": 0.9933
    }
   ],
   "caption_segments": [
@@ -510,15 +482,7 @@ window.MUSICEVAL_PAIRS = [
     "tag": "saxophone"
    },
    {
-    "text": " piece features smooth, consistent playing with minimal pitch variation. The song is performed with a light and airy feel, perfect for "
-   },
-   {
-    "text": "easy listening",
-    "dim": "mood_theme",
-    "tag": "easy listening"
-   },
-   {
-    "text": "."
+    "text": " piece features smooth, consistent playing with minimal pitch variation. The song is performed with a light and airy feel, perfect for easy listening."
    }
   ],
   "unlocated": []
@@ -737,7 +701,7 @@ window.MUSICEVAL_PAIRS = [
    "mqa_mean": {
     "qwen3omni": 0.3752,
     "af": 0.3748,
-    "mf": 0.2167
+    "mf": 0.2168
    }
   },
   "per_tag": [
@@ -865,7 +829,7 @@ window.MUSICEVAL_PAIRS = [
    },
    "mqa_mean": {
     "qwen3omni": 0.517,
-    "af": 0.6913,
+    "af": 0.6914,
     "mf": 0.4847
    }
   },
@@ -886,7 +850,7 @@ window.MUSICEVAL_PAIRS = [
    "mqa_mean": {
     "qwen3omni": 0.5099,
     "af": 0.5382,
-    "mf": 0.475
+    "mf": 0.4749
    }
   },
   "per_tag": [
@@ -1012,9 +976,9 @@ window.MUSICEVAL_PAIRS = [
   "caption": "This melodious ocarina solo features a soothing background, often accompanied by other instruments. The song is performed with a harmonious and tranquil quality.",
   "key_tag": "mood_theme:tranquil",
   "key_delta": 0.8546,
-  "tradeoff": true,
-  "opp_tag": "instrument:background",
-  "opp_delta": -0.3519,
+  "tradeoff": false,
+  "opp_tag": null,
+  "opp_delta": null,
   "human_agree": false,
   "A": {
    "id": "audiomos2025-track1-S022_P045",
@@ -1031,9 +995,9 @@ window.MUSICEVAL_PAIRS = [
     "mf": 0.867
    },
    "mqa_mean": {
-    "qwen3omni": 0.8606,
-    "af": 0.7885,
-    "mf": 0.7582
+    "qwen3omni": 0.9808,
+    "af": 0.816,
+    "mf": 0.885
    }
   },
   "B": {
@@ -1051,9 +1015,9 @@ window.MUSICEVAL_PAIRS = [
     "mf": 0.3776
    },
    "mqa_mean": {
-    "qwen3omni": 0.5536,
-    "af": 0.743,
-    "mf": 0.6176
+    "qwen3omni": 0.4542,
+    "af": 0.6891,
+    "mf": 0.7493
    }
   },
   "per_tag": [
@@ -1078,16 +1042,6 @@ window.MUSICEVAL_PAIRS = [
     "mf_B": 0.6514
    },
    {
-    "attribute": "instrument",
-    "tag": "background",
-    "qwen3omni_A": 0.5,
-    "af_A": 0.706,
-    "mf_A": 0.3776,
-    "qwen3omni_B": 0.8519,
-    "af_B": 0.9047,
-    "mf_B": 0.2227
-   },
-   {
     "attribute": "mood_theme",
     "tag": "harmonious",
     "qwen3omni_A": 0.9841,
@@ -1108,15 +1062,7 @@ window.MUSICEVAL_PAIRS = [
     "tag": "ocarina"
    },
    {
-    "text": " solo features a soothing "
-   },
-   {
-    "text": "background",
-    "dim": "instrument",
-    "tag": "background"
-   },
-   {
-    "text": ", often accompanied by other instruments. The song is performed with a "
+    "text": " solo features a soothing background, often accompanied by other instruments. The song is performed with a "
    },
    {
     "text": "harmonious",
@@ -1309,7 +1255,7 @@ window.MUSICEVAL_PAIRS = [
    },
    "mqa_mean": {
     "qwen3omni": 0.2561,
-    "af": 0.2032,
+    "af": 0.2031,
     "mf": 0.1565
    }
   },

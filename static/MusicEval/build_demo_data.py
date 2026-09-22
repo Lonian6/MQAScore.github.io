@@ -11,6 +11,24 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "selected_pairs.json")
 OUT = os.path.join(HERE, "..", "js", "demo_data.js")
 
+# --- Concept curation -------------------------------------------------------
+# The concepts are auto-extracted by Qwen3-4B and are NOT accuracy-checked. We
+# drop concepts that are clearly mis-annotated (wrong dimension) or out of the
+# paper's scope, keyed by (prompt_id, attribute, tag). See ../concept_audit.md.
+REMOVE = {
+    ("P058", "mood_theme", "contemporary"),     # era/style, not an emotion
+    ("P034", "mood_theme", "easy listening"),   # a genre/format, not an emotion
+    ("P045", "instrument", "background"),        # not an instrument
+}
+# Pairs whose trade-off opposite was one of the removed concepts: the key tag
+# stays (still a clean comparison) but the trade-off no longer holds.
+TRADEOFF_OFF = {"P034", "P045"}
+
+
+def recompute_mean(per_tag, side, alm):
+    vals = [t[alm + "_" + side] for t in per_tag]
+    return round(sum(vals) / len(vals), 4) if vals else None
+
 
 def spans_for(caption, tags):
     cands = []
@@ -46,8 +64,21 @@ def segment(caption, per_tag):
 
 def main():
     d = json.load(open(SRC))
-    total = matched = 0
+    total = matched = removed = 0
     for p in d["pairs"]:
+        pid = p["prompt_id"]
+        # curate: drop clearly mis-annotated concepts, then recompute means
+        kept = [t for t in p["per_tag"] if (pid, t["attribute"], t["tag"]) not in REMOVE]
+        removed += len(p["per_tag"]) - len(kept)
+        p["per_tag"] = kept
+        for side in ("A", "B"):
+            for alm in ("qwen3omni", "af", "mf"):
+                p[side]["mqa_mean"][alm] = recompute_mean(kept, side, alm)
+        if pid in TRADEOFF_OFF:
+            p["tradeoff"] = False
+            p["opp_tag"] = None
+            p["opp_delta"] = None
+
         segs, unlocated = segment(p["caption"], p["per_tag"])
         p["caption_segments"] = segs
         p["unlocated"] = unlocated
@@ -63,7 +94,8 @@ def main():
     )
     with open(OUT, "w") as f:
         f.write(header + json.dumps(d["pairs"], ensure_ascii=False, indent=1) + ";\n")
-    print(f"wrote {OUT}: {len(d['pairs'])} pairs; concepts located {matched}/{total}")
+    print(f"wrote {OUT}: {len(d['pairs'])} pairs; removed {removed} mis-annotated "
+          f"concepts; concepts located {matched}/{total}")
 
 
 if __name__ == "__main__":

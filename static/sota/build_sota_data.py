@@ -16,6 +16,25 @@ OUT = os.path.join(HERE, "..", "js", "sota_data.js")
 
 MODEL_ORDER = ["musicgen_large", "stable_audio_3", "meanaudio", "acestep_1_5", "GT"]
 
+# --- Concept curation -------------------------------------------------------
+# Concepts are auto-extracted by Qwen3-4B and NOT accuracy-checked. Drop clearly
+# mis-annotated / out-of-scope concepts, keyed by (id, attribute, tag).
+# See ../concept_audit.md.
+REMOVE = {
+    ("528", "instrument", "melody"),                  # "melody" is not an instrument
+    ("RXk0lQJ7ttc", "instrument", "female vocal"),    # a vocal, mis-filed as instrument
+    ("RXk0lQJ7ttc", "instrument", "male vocal"),      # a vocal, mis-filed as instrument
+    ("_yXtw_z2xf4", "mood_theme", "dizzying"),        # tempo-derived; tempo is out of scope
+}
+# The key tag of RXk0 was the mis-filed instrument:female vocal; re-point it to
+# the correctly-labeled vocal:female vocal (same concept, same winner & gap).
+KEY_OVERRIDE = {"RXk0lQJ7ttc": "vocal:female vocal"}
+
+
+def recompute_mean(per_tag, model, alm):
+    vals = [t["scores"][model][alm] for t in per_tag if model in t["scores"]]
+    return round(sum(vals) / len(vals), 4) if vals else None
+
 
 def spans_for(caption, tags):
     """Return non-overlapping placed spans [(start,end,attribute,tag)] greedy-longest."""
@@ -57,27 +76,32 @@ def segment_caption(caption, per_tag):
 def main():
     d = json.load(open(SRC))
     out = []
-    total = matched = 0
+    total = matched = removed = 0
     for p in d["prompts"]:
-        segments, unlocated = segment_caption(p["caption"], p["per_tag"])
-        total += len(p["per_tag"])
-        matched += len(p["per_tag"]) - len(unlocated)
+        # curate: drop clearly mis-annotated concepts
+        kept = [t for t in p["per_tag"] if (p["id"], t["attribute"], t["tag"]) not in REMOVE]
+        removed += len(p["per_tag"]) - len(kept)
         models = {}
         for mk in MODEL_ORDER:
             m = dict(p["models"][mk])
             m.pop("source_audio", None)
+            # recompute MQAScore mean over the kept concepts
+            m["mqa_mean"] = {a: recompute_mean(kept, mk, a) for a in ("qwen3omni", "af", "mf")}
             models[mk] = m
         per_tag = [
             {"attribute": t["attribute"], "tag": t["tag"], "scores": t["scores"]}
-            for t in p["per_tag"]
+            for t in kept
         ]
+        segments, unlocated = segment_caption(p["caption"], kept)
+        total += len(kept)
+        matched += len(kept) - len(unlocated)
         out.append({
             "rank": p["rank"],
             "dataset": p["dataset"],
             "id": p["id"],
             "caption_segments": segments,
             "unlocated": unlocated,
-            "key_tag": p["key_tag"],
+            "key_tag": KEY_OVERRIDE.get(p["id"], p["key_tag"]),
             "key_spread": p["key_spread"],
             "winner": p["winner"],
             "loser": p["loser"],
@@ -97,7 +121,8 @@ def main():
     )
     with open(OUT, "w") as f:
         f.write(header + json.dumps(out, ensure_ascii=False, indent=1) + ";\n")
-    print(f"wrote {OUT}: {len(out)} prompts; concepts located {matched}/{total}")
+    print(f"wrote {OUT}: {len(out)} prompts; removed {removed} mis-annotated "
+          f"concepts; concepts located {matched}/{total}")
 
 
 if __name__ == "__main__":

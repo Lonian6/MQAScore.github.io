@@ -1,0 +1,6 @@
+# Local-only record / dev log — never commit
+DEVLOG.local.md
+*.local.md
+
+# macOS
+.DS_Store

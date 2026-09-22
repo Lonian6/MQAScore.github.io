@@ -5,12 +5,14 @@
 (function () {
   "use strict";
 
+  // Note: the extractor's `context` attribute corresponds to the paper's "Usage"
+  // dimension (the intended situational setting); display it as "Usage".
   var DIMS = {
     genre: "Genre",
     instrument: "Instrument",
     mood_theme: "Mood / Theme",
     vocal: "Vocal",
-    context: "Context"
+    context: "Usage"
   };
   var DIM_ORDER = ["genre", "instrument", "mood_theme", "vocal", "context"];
 

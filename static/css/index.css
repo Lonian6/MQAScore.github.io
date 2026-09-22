@@ -1249,6 +1249,14 @@ a:focus {
   white-space: nowrap;
 }
 
+.extract-note {
+  font-size: 0.9rem !important;
+  color: var(--text-light) !important;
+  font-style: italic;
+  margin-top: 0.5rem !important;
+}
+.extract-note a { color: var(--primary-color); }
+
 .dim-legend {
   display: flex;
   flex-wrap: wrap;
