@@ -1,74 +1,109 @@
-// Renders the MusicEval demo pairs into #musiceval-demo.
-// Data comes from window.MUSICEVAL_PAIRS (static/js/demo_data.js).
+// Renders the MusicEval demo (10 A/B pairs) as a paged deck.
+// Data: window.MUSICEVAL_PAIRS (static/js/demo_data.js). Helpers: window.MQA.
 
 (function () {
   "use strict";
 
+  var M = window.MQA;
+  var el = M.el;
   var AUDIO_BASE = "static/MusicEval/";
-  var MODELS = [
-    { key: "qwen3omni", label: "Qwen3-Omni" },
-    { key: "af", label: "AF-Next" },
-    { key: "mf", label: "Music Flamingo" }
+  var SIDES = [
+    { key: "A", label: "A" },
+    { key: "B", label: "B" }
   ];
-  // Threshold (absolute P(Yes) gap) above which we tint a cell as the winner.
-  var WIN_GAP = 0.15;
 
-  function el(tag, cls, html) {
-    var e = document.createElement(tag);
-    if (cls) e.className = cls;
-    if (html !== undefined && html !== null) e.innerHTML = html;
-    return e;
+  function audioGrid(pair, keyAWins) {
+    var grid = el("div", "sota-audio-grid ab2");
+    SIDES.forEach(function (s) {
+      var data = pair[s.key];
+      var isKey = (s.key === "A") ? keyAWins : !keyAWins;
+      var cell = el("div", "sota-audio-cell audio-side" + (isKey ? " audio-side-key" : ""));
+      var head = el("div", "audio-head");
+      head.innerHTML =
+        '<span class="audio-tag">' + s.label + "</span>" +
+        '<span class="audio-sys">System ' + data.system_id + "</span>";
+      cell.appendChild(head);
+      var audio = el("audio");
+      audio.controls = true; audio.preload = "none";
+      audio.src = AUDIO_BASE + data.demo_audio;
+      cell.appendChild(audio);
+      var meta = el("div", "audio-meta");
+      meta.innerHTML =
+        '<span title="Human text-alignment MOS (1–5)">TA <b>' + M.fmt(data.mos_ta, 1) + "</b></span>" +
+        '<span title="Human overall-quality MOS (1–5)">OQ <b>' + M.fmt(data.mos_oq, 1) + "</b></span>";
+      cell.appendChild(meta);
+      grid.appendChild(cell);
+    });
+    return grid;
   }
 
-  function fmt(v, digits) {
-    if (v === null || v === undefined || isNaN(v)) return "–";
-    return Number(v).toFixed(digits === undefined ? 3 : digits);
+  function matrixBody(pair, almKey) {
+    var tb = el("tbody");
+    pair.per_tag.forEach(function (row) {
+      var tagId = row.attribute + ":" + row.tag;
+      var isKey = tagId === pair.key_tag;
+      var tr = el("tr", isKey ? "mqa-key-row" : null);
+      var th = el("th", "mqa-tag-col");
+      th.innerHTML =
+        '<span class="concept-chip dim-' + row.attribute + '">' + row.tag + "</span>" +
+        (isKey ? '<span class="mqa-key-flag">key</span>' : "");
+      tr.appendChild(th);
+      var a = row[almKey + "_A"], b = row[almKey + "_B"];
+      var gap = (a || 0) - (b || 0);
+      var aWin = gap >= M.WIN_GAP, bWin = gap <= -M.WIN_GAP;
+      tr.appendChild(M.scoreCell(a, aWin ? "win" : (bWin ? "lose" : "")));
+      tr.appendChild(M.scoreCell(b, bWin ? "win" : (aWin ? "lose" : "")));
+      tb.appendChild(tr);
+    });
+    // MQAScore mean row
+    var mtr = el("tr", "mqa-mean-row");
+    mtr.appendChild(el("th", "mqa-tag-col", '<span class="mqa-mean-label">MQAScore mean</span>'));
+    var ma = pair.A.mqa_mean[almKey], mb = pair.B.mqa_mean[almKey];
+    var mgap = (ma || 0) - (mb || 0);
+    mtr.appendChild(M.scoreCell(ma, mgap >= M.WIN_GAP ? "win" : (mgap <= -M.WIN_GAP ? "lose" : "")));
+    mtr.appendChild(M.scoreCell(mb, mgap <= -M.WIN_GAP ? "win" : (mgap >= M.WIN_GAP ? "lose" : "")));
+    tb.appendChild(mtr);
+    return tb;
   }
 
-  // Pretty attribute name for the badge / labels.
-  function attrLabel(attr) {
-    if (attr === "mood_theme") return "mood/theme";
-    return attr;
+  function matrixPanel(pair) {
+    var panel = el("div", "score-panel");
+    var head = el("div", "panel-head");
+    head.appendChild(el("h4", "panel-title reveal",
+      'MQAScore <span class="panel-note">— per attribute, P(Yes)</span>'));
+    var toggle = el("div", "alm-toggle");
+    M.ALMS.forEach(function (a, i) {
+      var b = el("button", "alm-btn" + (i === 0 ? " active" : ""), a.label);
+      b.setAttribute("data-alm", a.key);
+      toggle.appendChild(b);
+    });
+    head.appendChild(toggle);
+    panel.appendChild(head);
+
+    var scroll = el("div", "table-scroll");
+    var tbl = el("table", "mqa-table");
+    var thead = el("thead");
+    var tr = el("tr");
+    tr.appendChild(el("th", "mqa-tag-col", "Attribute &middot; concept"));
+    tr.appendChild(el("th", "mqa-model", "A"));
+    tr.appendChild(el("th", "mqa-model", "B"));
+    thead.appendChild(tr);
+    tbl.appendChild(thead);
+    tbl.appendChild(matrixBody(pair, "qwen3omni"));
+    scroll.appendChild(tbl);
+    panel.appendChild(scroll);
+
+    toggle.addEventListener("click", function (ev) {
+      var btn = ev.target.closest(".alm-btn");
+      if (!btn) return;
+      toggle.querySelectorAll(".alm-btn").forEach(function (x) { x.classList.remove("active"); });
+      btn.classList.add("active");
+      tbl.replaceChild(matrixBody(pair, btn.getAttribute("data-alm")), tbl.querySelector("tbody"));
+    });
+    return panel;
   }
 
-  // A single P(Yes) cell: number + mini bar; tinted for the higher side.
-  function scoreCell(value, isWinner, isLoser) {
-    var cls = "mqa-cell";
-    if (isWinner) cls += " win";
-    else if (isLoser) cls += " lose";
-    var td = el("td", cls);
-    var pct = Math.max(0, Math.min(1, value || 0)) * 100;
-    td.innerHTML =
-      '<span class="mqa-num">' + fmt(value) + "</span>" +
-      '<span class="mqa-bar"><span class="mqa-bar-fill" style="width:' + pct.toFixed(1) + '%"></span></span>';
-    return td;
-  }
-
-  // Build the audio player block for one side (A or B).
-  function audioBlock(side, data, isKeyWinner) {
-    var wrap = el("div", "audio-side" + (isKeyWinner ? " audio-side-key" : ""));
-    var head = el("div", "audio-head");
-    head.innerHTML =
-      '<span class="audio-tag">' + side + "</span>" +
-      '<span class="audio-sys">System ' + data.system_id + "</span>";
-    wrap.appendChild(head);
-
-    var audio = el("audio");
-    audio.controls = true;
-    audio.preload = "none";
-    audio.src = AUDIO_BASE + data.demo_audio;
-    wrap.appendChild(audio);
-
-    var meta = el("div", "audio-meta");
-    meta.innerHTML =
-      '<span title="Human text-alignment MOS (1–5)">TA <b>' + fmt(data.mos_ta, 1) + "</b></span>" +
-      '<span title="Human overall-quality MOS (1–5)">OQ <b>' + fmt(data.mos_oq, 1) + "</b></span>";
-    wrap.appendChild(meta);
-    return wrap;
-  }
-
-  // Compact "overall scores (nearly tied)" table.
-  function overallTable(pair) {
+  function overallPanel(pair) {
     var A = pair.A, B = pair.B;
     var rows = [
       ["CLAP", A.clap, B.clap],
@@ -77,6 +112,10 @@
       ["AQAScore (AF-Next)", A.aqa.af, B.aqa.af],
       ["AQAScore (Music Flamingo)", A.aqa.mf, B.aqa.mf]
     ];
+    var panel = el("div", "score-panel");
+    panel.appendChild(el("h4", "panel-title tied",
+      'Overall scores <span class="panel-note">— nearly tied</span>'));
+    var scroll = el("div", "table-scroll");
     var tbl = el("table", "overall-table");
     var thead = el("thead");
     thead.innerHTML = "<tr><th>Global / whole-caption score</th><th>A</th><th>B</th></tr>";
@@ -85,127 +124,38 @@
     rows.forEach(function (r) {
       var tr = el("tr");
       tr.appendChild(el("th", "score-name", r[0]));
-      tr.appendChild(el("td", null, fmt(r[1])));
-      tr.appendChild(el("td", null, fmt(r[2])));
+      tr.appendChild(el("td", null, M.fmt(r[1])));
+      tr.appendChild(el("td", null, M.fmt(r[2])));
       tb.appendChild(tr);
     });
     tbl.appendChild(tb);
-    return tbl;
-  }
-
-  // The per-attribute MQAScore table across the 3 LALMs.
-  function mqaTable(pair) {
-    var tbl = el("table", "mqa-table");
-
-    var thead = el("thead");
-    var top = el("tr");
-    top.appendChild(el("th", "mqa-tag-col", "Attribute &middot; concept"));
-    MODELS.forEach(function (m) {
-      var th = el("th", "mqa-model", m.label);
-      th.setAttribute("colspan", "2");
-      top.appendChild(th);
-    });
-    thead.appendChild(top);
-    var sub = el("tr", "mqa-subhead");
-    sub.appendChild(el("th", "mqa-tag-col", ""));
-    MODELS.forEach(function () {
-      sub.appendChild(el("th", null, "A"));
-      sub.appendChild(el("th", null, "B"));
-    });
-    thead.appendChild(sub);
-    tbl.appendChild(thead);
-
-    var tb = el("tbody");
-    var keyTag = pair.key_tag; // e.g. "genre:pop"
-    pair.per_tag.forEach(function (row) {
-      var tagId = row.attribute + ":" + row.tag;
-      var isKey = tagId === keyTag;
-      var tr = el("tr", isKey ? "mqa-key-row" : null);
-      var nameCell = el("th", "mqa-tag-col");
-      nameCell.innerHTML =
-        '<span class="mqa-attr">' + attrLabel(row.attribute) + "</span>" +
-        '<span class="mqa-concept">' + row.tag + "</span>" +
-        (isKey ? '<span class="mqa-key-flag" title="Key diverging attribute">key</span>' : "");
-      tr.appendChild(nameCell);
-      MODELS.forEach(function (m) {
-        var a = row[m.key + "_A"], b = row[m.key + "_B"];
-        var gap = (a || 0) - (b || 0);
-        var aWin = gap >= WIN_GAP, bWin = gap <= -WIN_GAP;
-        tr.appendChild(scoreCell(a, aWin, bWin));
-        tr.appendChild(scoreCell(b, bWin, aWin));
-      });
-      tb.appendChild(tr);
-    });
-
-    // MQAScore mean summary row.
-    var meanTr = el("tr", "mqa-mean-row");
-    meanTr.appendChild(el("th", "mqa-tag-col", '<span class="mqa-attr">MQAScore</span><span class="mqa-concept">mean (all concepts)</span>'));
-    MODELS.forEach(function (m) {
-      var a = pair.A.mqa_mean[m.key], b = pair.B.mqa_mean[m.key];
-      var gap = (a || 0) - (b || 0);
-      meanTr.appendChild(scoreCell(a, gap >= WIN_GAP, gap <= -WIN_GAP));
-      meanTr.appendChild(scoreCell(b, gap <= -WIN_GAP, gap >= WIN_GAP));
-    });
-    tb.appendChild(meanTr);
-
-    tbl.appendChild(tb);
-    return tbl;
+    scroll.appendChild(tbl);
+    panel.appendChild(scroll);
+    return panel;
   }
 
   function pairCard(pair) {
-    var card = el("article", "demo-pair");
-
-    // Header: index, prompt id, key-tag badge, trade-off badge.
+    var card = el("article", "sota-prompt");
     var header = el("div", "pair-header");
     var left = el("div", "pair-id");
     left.innerHTML =
       '<span class="pair-num">Pair ' + String(pair.pair).padStart(2, "0") + "</span>" +
-      '<span class="pair-prompt">prompt ' + pair.prompt_id + "</span>";
+      '<span class="pair-prompt">' + pair.prompt_id + "</span>";
     header.appendChild(left);
-
     var badges = el("div", "pair-badges");
     var kt = pair.key_tag.split(":");
-    badges.appendChild(el("span", "key-tag",
-      "key: " + attrLabel(kt[0]) + " &middot; " + kt[1]));
-    if (pair.tradeoff && pair.opp_tag) {
-      var ot = pair.opp_tag.split(":");
-      badges.appendChild(el("span", "opp-tag",
-        "trade-off: " + attrLabel(ot[0]) + " &middot; " + ot[1]));
-    }
+    badges.appendChild(el("span", "key-tag", "key: " + M.dimLabel(kt[0]) + " &middot; " + kt.slice(1).join(":")));
+    if (pair.tradeoff) badges.appendChild(el("span", "opp-tag", "trade-off"));
     header.appendChild(badges);
     card.appendChild(header);
 
-    // Shared caption (the text-to-music prompt).
-    var cap = el("blockquote", "pair-caption");
-    cap.innerHTML = '<span class="caption-label">Prompt</span>' + pair.caption;
-    card.appendChild(cap);
+    card.appendChild(M.captionBlock(pair));
+    card.appendChild(el("h5", "sota-sub", "Clips"));
+    card.appendChild(audioGrid(pair, (pair.key_delta || 0) >= 0));
 
-    // Two audio players.
-    var keyGapPositive = (pair.key_delta || 0) >= 0; // A wins key tag when positive
-    var ab = el("div", "audio-ab");
-    ab.appendChild(audioBlock("A", pair.A, keyGapPositive));
-    ab.appendChild(audioBlock("B", pair.B, !keyGapPositive));
-    card.appendChild(ab);
-
-    // Two score panels.
-    var panels = el("div", "score-panels");
-
-    var overall = el("div", "score-panel overall-panel");
-    overall.appendChild(el("h4", "panel-title tied",
-      "Overall scores <span class=\"panel-note\">— nearly tied</span>"));
-    var ow = el("div", "table-scroll");
-    ow.appendChild(overallTable(pair));
-    overall.appendChild(ow);
-    panels.appendChild(overall);
-
-    var mqa = el("div", "score-panel mqa-panel");
-    mqa.appendChild(el("h4", "panel-title reveal",
-      "MQAScore <span class=\"panel-note\">— per attribute, P(Yes)</span>"));
-    var mw = el("div", "table-scroll");
-    mw.appendChild(mqaTable(pair));
-    mqa.appendChild(mw);
-    panels.appendChild(mqa);
-
+    var panels = el("div", "sota-panels");
+    panels.appendChild(matrixPanel(pair));
+    panels.appendChild(overallPanel(pair));
     card.appendChild(panels);
     return card;
   }
@@ -215,12 +165,18 @@
     if (!mount) return;
     var pairs = window.MUSICEVAL_PAIRS;
     if (!pairs || !pairs.length) {
-      mount.appendChild(el("p", "demo-error",
-        "Demo data failed to load. Please ensure static/js/demo_data.js is present."));
+      mount.appendChild(M.el("p", "demo-error", "Demo data failed to load (static/js/demo_data.js)."));
       return;
     }
-    pairs.forEach(function (p) {
-      mount.appendChild(pairCard(p));
+    mount.appendChild(M.legend());
+    M.createDeck({
+      mount: mount,
+      items: pairs,
+      renderItem: pairCard,
+      optionLabel: function (p) {
+        return "Pair " + String(p.pair).padStart(2, "0") + " · " + p.prompt_id +
+          " · key " + p.key_tag.replace(":", " ");
+      }
     });
   }
 
