@@ -817,9 +817,10 @@ a:focus {
 
 /* Demo grid */
 .demo-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  /* Block (not flex): a block child is always clamped to this width, so the wide
+     score tables scroll inside their own box instead of stretching the whole card
+     past the viewport on mobile. (A flex-column item would not clamp here.) */
+  display: block;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -1062,7 +1063,7 @@ a:focus {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.82rem;
-  min-width: 460px;
+  min-width: 340px; /* MusicEval 3-col table; .sota-matrix overrides to 620 (scrolls) */
 }
 
 .mqa-table thead th {
@@ -1469,6 +1470,27 @@ a:focus {
 }
 @media screen and (max-width: 480px) {
   .sota-audio-grid { grid-template-columns: 1fr; }
+}
+
+/* Overflow fix: let the wide score tables scroll inside their own box instead of
+   forcing the whole card wider than the screen (flexbox min-width:auto default). */
+.demo-grid > *,
+.deck, .deck-viewport,
+.sota-prompt, .sota-panels, .score-panel, .table-scroll { min-width: 0; }
+.deck, .deck-viewport, .sota-prompt { max-width: 100%; }
+
+/* Bulma's .hero is a flex column, so its .container becomes a flex item that (with
+   the default min-width:auto) won't shrink below its content and overflows on mobile,
+   which .hero{overflow:hidden} then clips. These sections use .hero only for the light
+   background (no hero-body), so render them as plain blocks — the container then clamps
+   to the viewport and the wide tables scroll inside their own box. */
+.section.hero.is-light { display: block; }
+.hero .container { min-width: 0; }
+
+/* MusicEval A/B audio grid: two players side by side, stacking on narrow screens */
+.sota-audio-grid.ab2 { grid-template-columns: 1fr 1fr; max-width: 640px; }
+@media screen and (max-width: 560px) {
+  .sota-audio-grid.ab2 { grid-template-columns: 1fr; }
 }
 
 /* ==========================================================================
